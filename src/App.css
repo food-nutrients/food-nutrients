@@ -1,0 +1,174 @@
+@import '~antd/dist/antd.css';
+
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
+    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
+    monospace;
+}
+.App {
+  text-align: center;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+.logo {
+  width: 100%;
+  clear: both;
+}
+.logo img {
+  height: 90pt;
+  margin-top: 15pt;
+
+}
+.leftPanel {
+  flex: 1;
+  min-width: 300px;
+}
+.foodSelector { 
+  margin: 20pt;
+  margin-top: 5pt;
+}
+.rightPanel {
+  flex: 2;
+  margin-top: 10pt;
+  min-width: 300px;
+}
+
+.macroNutrients {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  align-items: stretch;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  font-size: 20px;
+  margin: 24pt 0pt;
+  border-bottom: 1px solid #eee;
+  padding-bottom: 33px;
+}
+.macroNutrients:focus {
+  outline: none;
+}
+.microNutrients:focus {
+  outline: none;
+}
+.macroNutrient {
+  flex: 1;
+  min-width: 100px;
+}
+.macroNutrient div:first-child{
+  font-weight: 600;
+}
+
+.microNutrients {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  flex-wrap: wrap;
+}
+.microNutrient {
+  display: flex;
+  flex-wrap: nowrap;
+  justify-content: flex-end;
+  flex-direction: row;
+}
+.nutrientType {
+  display: block;
+  font-size: 20px;
+  margin: 10pt 0;
+  font-weight: 600;
+}
+.microNutrientName{
+  margin: 0 5pt;
+  text-align: left;
+  white-space: nowrap;
+  flex-grow: 1;
+}
+.microNutrientAmount{
+  margin: 0 5pt;
+  white-space: nowrap;
+  width: 59px;
+  text-align: right;
+}
+.microNutrientProgressBar {
+  min-width: 115px;
+  justify-self: flex-start;
+  align-self: flex-end;
+  margin-right: 6pt;
+  display: flex;
+}
+.microNutrientProgressBar span {
+  padding-left: 5pt;
+  color: rgba(0, 0, 0, 0.45);
+  font-size: 0.9em;
+  vertical-align: middle;
+}
+.microNutrientType {
+  max-width: 300px;
+}
+.selectedFoodsLabel {
+  text-transform: uppercase;
+}
+
+.selectedFood {
+  margin: 10pt;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+.selectedFoodAmount .ant-input {
+  text-align: right;
+  width: 60px;
+  margin: 0
+}
+.selectedFoodAmount {
+  display: flex;
+  flex-direction: row;
+  align-content: flex-start;
+}
+.deleteBtn {
+  margin-left: 5pt;
+}
+
+input[type=number]::-webkit-inner-spin-button, 
+input[type=number]::-webkit-outer-spin-button { 
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    margin: 0; 
+}
+
+@keyframes flickerAnimation {
+  0%   { opacity:1; }
+  50%  { opacity:0; }
+  100% { opacity:1; }
+}
+@-o-keyframes flickerAnimation{
+  0%   { opacity:1; }
+  50%  { opacity:0; }
+  100% { opacity:1; }
+}
+@-moz-keyframes flickerAnimation{
+  0%   { opacity:1; }
+  50%  { opacity:0; }
+  100% { opacity:1; }
+}
+@-webkit-keyframes flickerAnimation{
+  0%   { opacity:1; }
+  50%  { opacity:0; }
+  100% { opacity:1; }
+}
+.animate-flicker {
+   -webkit-animation: flickerAnimation 2s infinite;
+   -moz-animation: flickerAnimation 2s infinite;
+   -o-animation: flickerAnimation 2s infinite;
+    animation: flickerAnimation 2s infinite;
+}
