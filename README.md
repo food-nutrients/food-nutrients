@@ -1,4 +1,10 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# Food Nutrients
+
+Live website: [http://food-nutrients.github.io](http://food-nutrients.github.io)
+
+# Contribution
+
+Feel free to add suggestions, PRs, comments and bug reports.
 
 ## Available Scripts
 
