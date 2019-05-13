@@ -2,16 +2,14 @@
 
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
-    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
-    sans-serif;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu',
+    'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
 code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
-    monospace;
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New', monospace;
 }
 .App {
   text-align: center;
@@ -26,13 +24,12 @@ code {
 .logo img {
   height: 90pt;
   margin-top: 15pt;
-
 }
 .leftPanel {
   flex: 1;
   min-width: 300px;
 }
-.foodSelector { 
+.foodSelector {
   margin: 20pt;
   margin-top: 5pt;
 }
@@ -50,7 +47,7 @@ code {
   justify-content: space-around;
   flex-wrap: wrap;
   font-size: 20px;
-  margin: 24pt 0pt;
+  margin: 24pt 0;
   border-bottom: 1px solid #eee;
   padding-bottom: 33px;
 }
@@ -64,7 +61,7 @@ code {
   flex: 1;
   min-width: 100px;
 }
-.macroNutrient div:first-child{
+.macroNutrient div:first-child {
   font-weight: 600;
 }
 
@@ -86,13 +83,13 @@ code {
   margin: 10pt 0;
   font-weight: 600;
 }
-.microNutrientName{
+.microNutrientName {
   margin: 0 5pt;
   text-align: left;
   white-space: nowrap;
   flex-grow: 1;
 }
-.microNutrientAmount{
+.microNutrientAmount {
   margin: 0 5pt;
   white-space: nowrap;
   width: 59px;
@@ -127,7 +124,7 @@ code {
 .selectedFoodAmount .ant-input {
   text-align: right;
   width: 60px;
-  margin: 0
+  margin: 0;
 }
 .selectedFoodAmount {
   display: flex;
@@ -138,37 +135,65 @@ code {
   margin-left: 5pt;
 }
 
-input[type=number]::-webkit-inner-spin-button, 
-input[type=number]::-webkit-outer-spin-button { 
-    -webkit-appearance: none;
-    -moz-appearance: none;
-    appearance: none;
-    margin: 0; 
+input[type='number']::-webkit-inner-spin-button,
+input[type='number']::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  margin: 0;
+}
+
+input[type='number'] {
+  -moz-appearance: textfield;
 }
 
 @keyframes flickerAnimation {
-  0%   { opacity:1; }
-  50%  { opacity:0; }
-  100% { opacity:1; }
+  0% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
 }
-@-o-keyframes flickerAnimation{
-  0%   { opacity:1; }
-  50%  { opacity:0; }
-  100% { opacity:1; }
+@-o-keyframes flickerAnimation {
+  0% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
 }
-@-moz-keyframes flickerAnimation{
-  0%   { opacity:1; }
-  50%  { opacity:0; }
-  100% { opacity:1; }
+@-moz-keyframes flickerAnimation {
+  0% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
 }
-@-webkit-keyframes flickerAnimation{
-  0%   { opacity:1; }
-  50%  { opacity:0; }
-  100% { opacity:1; }
+@-webkit-keyframes flickerAnimation {
+  0% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
 }
 .animate-flicker {
-   -webkit-animation: flickerAnimation 2s infinite;
-   -moz-animation: flickerAnimation 2s infinite;
-   -o-animation: flickerAnimation 2s infinite;
-    animation: flickerAnimation 2s infinite;
+  -webkit-animation: flickerAnimation 2s infinite;
+  -moz-animation: flickerAnimation 2s infinite;
+  -o-animation: flickerAnimation 2s infinite;
+  animation: flickerAnimation 2s infinite;
 }

@@ -1,20 +1,21 @@
+export const defaultMacroNutrients = {
+    calories: 0,
+    caloriesUnits: 'kcal',
+    caloriesInUnits: 0,
+    proteins: 0,
+    proteinUnits: 'μg',
+    proteinsInUnits: 0,
+    carbohydrates: 0,
+    carbohydratesUnits: 'μg',
+    carbohydratesInUnits: 0,
+    fat: 0,
+    fatUnits: 'μg',
+    fatInUnits: 0,
+};
 export const calculateMacroNutrients = selectedFoods => {
   const macroNutrients = Object.assign(
     {},
-    {
-      calories: 0,
-      caloriesUnits: 'kcal',
-      caloriesInUnits: 0,
-      proteins: 0,
-      proteinUnits: 'μg',
-      proteinsInUnits: 0,
-      carbohydrates: 0,
-      carbohydratesUnits: 'μg',
-      carbohydratesInUnits: 0,
-      fat: 0,
-      fatUnits: 'μg',
-      fatInUnits: 0,
-    },
+    defaultMacroNutrients,
   )
   selectedFoods.forEach(selectedFood => {
     selectedFood.amount = selectedFood.amount || 0

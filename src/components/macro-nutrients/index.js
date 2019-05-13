@@ -6,6 +6,7 @@ import Chart from 'chart.js'
 import { Tooltip } from 'antd'
 
 import emptyGraph from './../../imgs/graph_placeholder.png'
+import { defaultMacroNutrients } from './../calculations'
 
 import './../../App.css'
 
@@ -17,20 +18,7 @@ export default class MacroNutrients extends Component {
   }
 
   static defaultProps = {
-    macroNutrients: {
-      calories: 0,
-      caloriesUnits: 'kcal',
-      caloriesInUnits: 0,
-      proteins: 0,
-      proteinUnits: 'μg',
-      proteinsInUnits: 0,
-      carbohydrates: 0,
-      carbohydratesUnits: 'μg',
-      carbohydratesInUnits: 0,
-      fat: 0,
-      fatUnits: 'μg',
-      fatInUnits: 0,
-    },
+    macroNutrients: defaultMacroNutrients,
   }
   getPieChartData() {
     const total =
