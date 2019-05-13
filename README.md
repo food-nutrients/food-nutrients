@@ -1,4 +1,6 @@
-<img align="center" src="https://raw.githubusercontent.com/food-nutrients/food-nutrients/master/src/imgs/logo.png?raw=true" alt="Food Nutrients logo">
+<p align="center">
+  <img width="706" height="288" src="https://raw.githubusercontent.com/food-nutrients/food-nutrients/master/src/imgs/logo.png?raw=true" alt="Food Nutrients logo">
+</p>
 
 > View all the macro & micronutrients of raw foods as % based on daily recommended values. You can quickly identify missing micronutrients from your diet and add foods to your meal that gives you healthier nutrition.
 
