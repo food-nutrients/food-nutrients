@@ -1,16 +1,10 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 
-import ReactChartkick, { PieChart } from 'react-chartkick'
-import Chart from 'chart.js'
-import { Tooltip } from 'antd'
-
-import emptyGraph from './../../imgs/graph_placeholder.png'
+import MacroPieChart from '../macro-pie-chart'
 import { defaultMacroNutrients } from './../calculations'
 
 import './../../App.css'
-
-ReactChartkick.addAdapter(Chart)
 
 export default class MacroNutrients extends Component {
   static propTypes = {
@@ -19,17 +13,6 @@ export default class MacroNutrients extends Component {
 
   static defaultProps = {
     macroNutrients: defaultMacroNutrients,
-  }
-  getPieChartData() {
-    const total =
-      this.props.macroNutrients.proteins +
-      this.props.macroNutrients.carbohydrates +
-      this.props.macroNutrients.fat
-    return [
-      ['Proteins', parseInt((this.props.macroNutrients.proteins * 100) / total, 10) || 0],
-      ['Carbs', parseInt((this.props.macroNutrients.carbohydrates * 100) / total, 10) || 0],
-      ['Fat', parseInt((this.props.macroNutrients.fat * 100) / total, 10) || 0],
-    ]
   }
   render() {
     return (
@@ -44,22 +27,7 @@ export default class MacroNutrients extends Component {
           className="macroNutrient"
           style={{ marginTop: '-10pt', display: 'flex', justifyContent: 'center' }}
         >
-          {this.props.macroNutrients.proteins === 0 && (
-            <Tooltip title="Macro Nutrients Ratio">
-              <img style={{ opacity: '0.1' }} src={emptyGraph} alt="Empty Graph" />
-            </Tooltip>
-          )}
-          {this.props.macroNutrients.proteins !== 0 && (
-            <PieChart
-              colors={['#5ca0d3', '#64CEAA', '#f9fd50']}
-              id="macro_ratio_chart"
-              suffix="%"
-              legend={false}
-              height="100px"
-              width="100px"
-              data={this.getPieChartData()}
-            />
-          )}
+          <MacroPieChart macroNutrients={this.props.macroNutrients} />
         </div>
         <div className="macroNutrient">
           <div>Proteins</div>
