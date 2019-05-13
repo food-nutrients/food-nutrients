@@ -12,11 +12,10 @@ export default class SelectedFood extends Component {
     }).isRequired,
   }
   onAmountChange = e => {
-    this.props.onChange(
-      Object.assign(this.props.selectedFood, {
-        amount: parseInt(e.currentTarget.value, 10),
-      }),
-    )
+    this.props.onChange({
+        ...this.props.selectedFood,
+        amount: parseInt(e.currentTarget.value, 10)
+    })
   }
   onDelete = () => this.props.onRemove(this.props.selectedFood)
   render() {

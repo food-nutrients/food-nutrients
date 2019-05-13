@@ -6,28 +6,29 @@
 
 ![Release](https://img.shields.io/github/release/food-nutrients/food-nutrients.svg) ![GitHub code size in bytes](https://img.shields.io/github/languages/code-size/food-nutrients/food-nutrients.svg) [![Codacy Badge](https://api.codacy.com/project/badge/Grade/7f37798aff8949f0a3895127a5f82c17)](https://app.codacy.com/app/kolarski/food-nutrients?utm_source=github.com&utm_medium=referral&utm_content=food-nutrients/food-nutrients&utm_campaign=Badge_Grade_Dashboard) ![GitHub issues](https://img.shields.io/github/issues-raw/food-nutrients/food-nutrients.svg) ![Dependencies](https://img.shields.io/david/food-nutrients/food-nutrients.svg)
 
-
-
-
 [![Food Nutrients website](https://raw.githubusercontent.com/food-nutrients/food-nutrients/master/public/screenshots/screen1.png?raw=true)](http://food-nutrients.github.io "Food Nutrients website")
 
-Live website: [http://food-nutrients.github.io](http://food-nutrients.github.io)
+Live website: <http://food-nutrients.github.io>
 
 # Data
+
 The data is located in `src/data` and is compiled by us.
--  [foods.json](https://github.com/food-nutrients/food-nutrients/blob/master/src/data/foods.json) - contains all food nutrients
--  [nutrients.json](https://github.com/food-nutrients/food-nutrients/blob/master/src/data/nutrients.json) - contains the nutrients and RDI (Reference Daily Intake)
+
+-   [foods.json](https://github.com/food-nutrients/food-nutrients/blob/master/src/data/foods.json) - contains all food nutrients
+-   [nutrients.json](https://github.com/food-nutrients/food-nutrients/blob/master/src/data/nutrients.json) - contains the nutrients and RDI (Reference Daily Intake)
 
 We wanted to keep it simple and may move to using the [USDA Food Database](https://ndb.nal.usda.gov/ndb/search/list) as a sort of API.
 
 ## Contribution
+
 Feel free to add suggestions, PRs, comments and bug reports.
 
 ## Authors
+
 Alex Kolarski (aleks.rk@gmail.com)
 Boris Minev (boriss.minev@gmail.com)
 
-## License 
+## License
 
 (The MIT License)
 
