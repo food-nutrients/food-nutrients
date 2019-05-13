@@ -4,7 +4,11 @@
 
 > View all the macro & micronutrients of raw foods as % based on daily recommended values. You can quickly identify missing micronutrients from your diet and add foods to your meal that gives you healthier nutrition.
 
-[![Codacy Badge](https://api.codacy.com/project/badge/Grade/7f37798aff8949f0a3895127a5f82c17)](https://app.codacy.com/app/kolarski/food-nutrients?utm_source=github.com&utm_medium=referral&utm_content=food-nutrients/food-nutrients&utm_campaign=Badge_Grade_Dashboard)
+[![Codacy Badge](https://api.codacy.com/project/badge/Grade/7f37798aff8949f0a3895127a5f82c17)](https://app.codacy.com/app/kolarski/food-nutrients?utm_source=github.com&utm_medium=referral&utm_content=food-nutrients/food-nutrients&utm_campaign=Badge_Grade_Dashboard) ![Dependencies](https://img.shields.io/david/food-nutrients/food-nutrients.svg)
+
+
+
+
 [![Food Nutrients website](https://raw.githubusercontent.com/food-nutrients/food-nutrients/master/public/screenshots/screen1.png?raw=true)](http://food-nutrients.github.io "Food Nutrients website")
 
 Live website: [http://food-nutrients.github.io](http://food-nutrients.github.io)
