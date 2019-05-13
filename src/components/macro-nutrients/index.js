@@ -27,7 +27,11 @@ export default class MacroNutrients extends Component {
           className="macroNutrient"
           style={{ marginTop: '-10pt', display: 'flex', justifyContent: 'center' }}
         >
-          <MacroPieChart macroNutrients={this.props.macroNutrients} />
+          <MacroPieChart
+            proteins={this.props.macroNutrients.proteins}
+            carbohydrates={this.props.macroNutrients.carbohydrates}
+            fat={this.props.macroNutrients.fat}
+          />
         </div>
         <div className="macroNutrient">
           <div>Proteins</div>
