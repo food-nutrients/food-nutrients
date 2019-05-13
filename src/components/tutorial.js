@@ -13,19 +13,16 @@ export default () => {
     tour.addStep('foods', {
       text: 'Select the foods from the dropdown',
       attachTo: '.foodSelector bottom',
-      classes: 'foodSelector',
       buttons: [{ text: 'Next', action: tour.next }],
     })
     tour.addStep('macro', {
       text: 'Then you will see the total calories and macro nutrients.',
       attachTo: '.macroNutrients bottom',
-      classes: 'macroNutrients',
       buttons: [{ text: 'Next', action: tour.next }],
     })
     tour.addStep('micro', {
       text: 'And also all micro nutrients and % of daily recommended values.',
       attachTo: '.microNutrients left',
-      classes: 'microNutrients',
       buttons: [{ text: 'Thanks, enjoy!', action: tour.next }],
     })
     setTimeout(() => {
