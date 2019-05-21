@@ -62,9 +62,7 @@ export default class App extends Component {
   }
 
   onFoodRemove = removedFood => {
-    const removedFoodIndex = this.state.selectedFoods.findIndex(
-      f => f.food.name === removedFood.food.name,
-    )
+    const removedFoodIndex = this.findFoodIndex(removedFood.food.name)
     const updatedSelectedFoods = update(this.state.selectedFoods, {
       $splice: [[removedFoodIndex, 1]],
     })
@@ -79,11 +77,9 @@ export default class App extends Component {
       },
     )
   }
-
+  findFoodIndex = foodName => this.state.selectedFoods.findIndex(f => f.food.name === foodName)
   onFoodAmountChange = updatedSelectedFood => {
-    const updatedFoodIndex = this.state.selectedFoods.findIndex(
-      f => f.food.name === updatedSelectedFood.food.name,
-    )
+    const updatedFoodIndex = this.findFoodIndex(updatedSelectedFood.food.name)
     const updatedSelectedFoods = update(this.state.selectedFoods, {
       $splice: [[updatedFoodIndex, 1, updatedSelectedFood]],
     })
