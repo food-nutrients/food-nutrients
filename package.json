@@ -29,7 +29,7 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "coverage": "jest --coverage --moduleNameMapper '{\".+\\\\.(css|styl|less|sass|scss|png|jpg|ttf|woff|woff2)$\": \"jest-transform-stub\"}'  --coverageDirectory ./__coverage__",
+    "coverage": "jest --coverage --moduleNameMapper '{\".+\\\\.(css|styl|less|sass|scss|png|jpg|ttf|woff|woff2)$\": \"jest-transform-stub\"}'",
     "eject": "react-scripts eject"
   },
   "dependencies": {
