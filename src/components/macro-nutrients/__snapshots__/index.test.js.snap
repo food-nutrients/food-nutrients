@@ -148,7 +148,11 @@ exports[`renders correctly without data 1`] = `
       alt="Empty Graph"
       onMouseEnter={[Function]}
       onMouseLeave={[Function]}
-      src="graph_placeholder.png"
+      src={
+        Object {
+          "process": [Function],
+        }
+      }
       style={
         Object {
           "opacity": "0.1",
