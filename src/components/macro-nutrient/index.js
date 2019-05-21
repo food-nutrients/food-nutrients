@@ -4,7 +4,13 @@ import PropTypes from 'prop-types'
 export default class MacroNutrient extends Component {
   static propTypes = {
     name: PropTypes.string.isRequired,
-    macroNutrients: PropTypes.any,
+    amount: PropTypes.number,
+    units: PropTypes.string,
+  }
+
+  static defaultProps = {
+    amount: 0,
+    units: '',
   }
 
   render() {

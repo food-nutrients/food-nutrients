@@ -9,7 +9,23 @@ import MacroNutrient from '../macro-nutrient'
 
 export default class MacroNutrients extends Component {
   static propTypes = {
-    macroNutrients: PropTypes.any,
+    macroNutrients: PropTypes.shape({
+      calories: PropTypes.number.isRequired,
+      caloriesInUnits: PropTypes.number.isRequired,
+      caloriesUnits: PropTypes.string.isRequired,
+
+      proteins: PropTypes.number.isRequired,
+      proteinsInUnits: PropTypes.number.isRequired,
+      proteinUnits: PropTypes.string.isRequired,
+
+      carbohydrates: PropTypes.number.isRequired,
+      carbohydratesInUnits: PropTypes.number.isRequired,
+      carbohydratesUnits: PropTypes.string.isRequired,
+
+      fat: PropTypes.number.isRequired,
+      fatInUnits: PropTypes.number.isRequired,
+      fatUnits: PropTypes.string.isRequired,
+    }),
   }
 
   static defaultProps = {
@@ -18,10 +34,10 @@ export default class MacroNutrients extends Component {
   state = {
     macroNutrients: [],
   }
-  componentWillReceiveProps(nextProps) {
+  static getDerivedStateFromProps(nextProps) {
     const macroNutrients = nextProps.macroNutrients
 
-    this.setState({
+    return {
       macroNutrients: [
         {
           name: 'Calories',
@@ -44,13 +60,14 @@ export default class MacroNutrients extends Component {
           units: macroNutrients.fatUnits,
         },
       ],
-    })
+    }
   }
   render() {
     return (
       <div className="macroNutrients">
         {this.state.macroNutrients.map(macroNutrient => (
           <MacroNutrient
+            key={macroNutrient.name}
             name={macroNutrient.name}
             amount={macroNutrient.amount}
             units={macroNutrient.units}

@@ -5,8 +5,16 @@ import { Progress } from 'antd'
 
 export default class MicroNutrient extends Component {
   static propTypes = {
-    microNutrient: PropTypes.any.isRequired,
-    microNutrientData: PropTypes.any,
+    microNutrient: PropTypes.shape({
+      name: PropTypes.string.isRequired,
+      wiki: PropTypes.string.isRequired,
+    }).isRequired,
+    microNutrientData: PropTypes.shape({
+      amount: PropTypes.number.isRequired,
+      amountInUnits: PropTypes.number.isRequired,
+      percentage: PropTypes.number.isRequired,
+      amountUnit: PropTypes.string.isRequired,
+    }),
   }
 
   static defaultProps = {
@@ -27,41 +35,41 @@ export default class MicroNutrient extends Component {
       nextProps.microNutrientData.amountUnit !== this.state.unit
     )
   }
-  componentWillReceiveProps(newProps) {
+  static getDerivedStateFromProps(newProps, prevState) {
     if (
       newProps.microNutrientData === null &&
-      (this.state.amount !== 0 ||
-        this.state.unit !== 'μg' ||
-        this.state.name !== newProps.microNutrient.name ||
-        this.state.wiki !== newProps.microNutrient.wiki)
+      (prevState.amount !== 0 ||
+        prevState.unit !== 'μg' ||
+        prevState.name !== newProps.microNutrient.name ||
+        prevState.wiki !== newProps.microNutrient.wiki)
     ) {
-      this.setState({
+      return {
         name: newProps.microNutrient.name,
         wiki: newProps.microNutrient.wiki,
         percentage: 0,
         amount: 0,
         unit: 'μg',
         nutrientStatus: 'normal',
-      })
+      }
     }
 
     if (
       newProps.microNutrientData &&
-      (newProps.microNutrientData.amount !== this.state.amount ||
-        newProps.microNutrientData.amountUnit !== this.state.unit)
+      (newProps.microNutrientData.amount !== prevState.amount ||
+        newProps.microNutrientData.amountUnit !== prevState.unit)
     ) {
-      return this.setState({
+      return {
         name: newProps.microNutrient.name,
         wiki: newProps.microNutrient.wiki,
         percentage: newProps.microNutrientData.percentage,
         amount: newProps.microNutrientData.amountInUnits,
         unit: newProps.microNutrientData.amountUnit,
-        nutrientStatus: this.nutrientStatus(newProps.microNutrientData),
-      })
+        nutrientStatus: MicroNutrient.nutrientStatus(newProps.microNutrientData),
+      }
     }
   }
 
-  nutrientStatus(microNutrient) {
+  static nutrientStatus(microNutrient) {
     let barType = 'normal'
     if (
       microNutrient.amount >= microNutrient.rda &&

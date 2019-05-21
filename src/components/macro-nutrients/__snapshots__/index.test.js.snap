@@ -1,0 +1,160 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders correctly with data 1`] = `
+<div
+  className="macroNutrients"
+>
+  <div
+    className="macroNutrient"
+  >
+    <div>
+      Calories
+    </div>
+    <div>
+      498
+       
+      kcal
+    </div>
+  </div>
+  <div
+    className="macroNutrient"
+  >
+    <div>
+      Proteins
+    </div>
+    <div>
+      3
+       
+      mg1
+    </div>
+  </div>
+  <div
+    className="macroNutrient"
+  >
+    <div>
+      Carbs
+    </div>
+    <div>
+      13
+       
+      mg2
+    </div>
+  </div>
+  <div
+    className="macroNutrient"
+  >
+    <div>
+      Fats
+    </div>
+    <div>
+      23
+       
+      mg3
+    </div>
+  </div>
+  <div
+    className="macroNutrient"
+    style={
+      Object {
+        "display": "flex",
+        "justifyContent": "center",
+        "marginTop": "-10pt",
+      }
+    }
+  >
+    <div
+      id="macro_ratio_chart"
+      style={
+        Object {
+          "color": "#999",
+          "fontFamily": "'Lucida Grande', 'Lucida Sans Unicode', Verdana, Arial, Helvetica, sans-serif",
+          "fontSize": "14px",
+          "height": "100px",
+          "lineHeight": "100px",
+          "textAlign": "center",
+          "width": "100px",
+        }
+      }
+    >
+      Loading...
+    </div>
+  </div>
+</div>
+`;
+
+exports[`renders correctly without data 1`] = `
+<div
+  className="macroNutrients"
+>
+  <div
+    className="macroNutrient"
+  >
+    <div>
+      Calories
+    </div>
+    <div>
+      0
+       
+      kcal
+    </div>
+  </div>
+  <div
+    className="macroNutrient"
+  >
+    <div>
+      Proteins
+    </div>
+    <div>
+      0
+       
+      μg
+    </div>
+  </div>
+  <div
+    className="macroNutrient"
+  >
+    <div>
+      Carbs
+    </div>
+    <div>
+      0
+       
+      μg
+    </div>
+  </div>
+  <div
+    className="macroNutrient"
+  >
+    <div>
+      Fats
+    </div>
+    <div>
+      0
+       
+      μg
+    </div>
+  </div>
+  <div
+    className="macroNutrient"
+    style={
+      Object {
+        "display": "flex",
+        "justifyContent": "center",
+        "marginTop": "-10pt",
+      }
+    }
+  >
+    <img
+      alt="Empty Graph"
+      onMouseEnter={[Function]}
+      onMouseLeave={[Function]}
+      src="graph_placeholder.png"
+      style={
+        Object {
+          "opacity": "0.1",
+        }
+      }
+    />
+  </div>
+</div>
+`;

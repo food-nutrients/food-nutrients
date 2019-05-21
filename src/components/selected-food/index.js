@@ -7,7 +7,9 @@ export default class SelectedFood extends Component {
     onChange: PropTypes.func.isRequired,
     onRemove: PropTypes.func.isRequired,
     selectedFood: PropTypes.shape({
-      food: PropTypes.any,
+      food: PropTypes.shape({
+        name: PropTypes.string.isRequired,
+      }).isRequired,
       amount: PropTypes.number,
     }).isRequired,
   }

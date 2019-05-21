@@ -1,0 +1,31 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders correctly 1`] = `
+<div
+  className="macroNutrient"
+  style={
+    Object {
+      "display": "flex",
+      "justifyContent": "center",
+      "marginTop": "-10pt",
+    }
+  }
+>
+  <div
+    id="macro_ratio_chart"
+    style={
+      Object {
+        "color": "#999",
+        "fontFamily": "'Lucida Grande', 'Lucida Sans Unicode', Verdana, Arial, Helvetica, sans-serif",
+        "fontSize": "14px",
+        "height": "100px",
+        "lineHeight": "100px",
+        "textAlign": "center",
+        "width": "100px",
+      }
+    }
+  >
+    Loading...
+  </div>
+</div>
+`;

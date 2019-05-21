@@ -1,0 +1,271 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders correctly with micro nutrients data 1`] = `
+<div
+  className="microNutrients"
+>
+  <div
+    className="microNutrientType"
+  >
+    <span
+      className="nutrientType"
+    >
+      Vitamins
+    </span>
+    <div
+      className="microNutrient"
+    >
+      <div
+        className="microNutrientName"
+      >
+        <a
+          href="https://en.wikipedia.org/wiki/Vitamin_A"
+          rel="noopener noreferrer"
+          target="_blank"
+        >
+          Vitamin A
+        </a>
+      </div>
+      <div
+        className="microNutrientProgressBar"
+      >
+        <div
+          className="ant-progress ant-progress-line ant-progress-status-normal ant-progress-small"
+        >
+          <div>
+            <div
+              className="ant-progress-outer"
+            >
+              <div
+                className="ant-progress-inner"
+              >
+                <div
+                  className="ant-progress-bg"
+                  style={
+                    Object {
+                      "background": undefined,
+                      "borderRadius": "100px",
+                      "height": 6,
+                      "width": "30%",
+                    }
+                  }
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+        <span>
+          30
+          % 
+        </span>
+      </div>
+      <div
+        className="microNutrientAmount"
+      >
+        5
+         
+        mg
+      </div>
+    </div>
+  </div>
+  <div
+    className="microNutrientType"
+  >
+    <span
+      className="nutrientType"
+    >
+      Minerals
+    </span>
+    <div
+      className="microNutrient"
+    >
+      <div
+        className="microNutrientName"
+      >
+        <a
+          href="https://en.wikipedia.org/wiki/Chloride"
+          rel="noopener noreferrer"
+          target="_blank"
+        >
+          Chloride
+        </a>
+      </div>
+      <div
+        className="microNutrientProgressBar"
+      >
+        <div
+          className="ant-progress ant-progress-line ant-progress-status-normal ant-progress-small"
+        >
+          <div>
+            <div
+              className="ant-progress-outer"
+            >
+              <div
+                className="ant-progress-inner"
+              >
+                <div
+                  className="ant-progress-bg"
+                  style={
+                    Object {
+                      "background": undefined,
+                      "borderRadius": "100px",
+                      "height": 6,
+                      "width": "40%",
+                    }
+                  }
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+        <span>
+          40
+          % 
+        </span>
+      </div>
+      <div
+        className="microNutrientAmount"
+      >
+        10
+         
+        mg
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`renders correctly with null nutrients data 1`] = `
+<div
+  className="microNutrients"
+>
+  <div
+    className="microNutrientType"
+  >
+    <span
+      className="nutrientType"
+    >
+      Vitamins
+    </span>
+    <div
+      className="microNutrient"
+    >
+      <div
+        className="microNutrientName"
+      >
+        <a
+          href="https://en.wikipedia.org/wiki/Vitamin_A"
+          rel="noopener noreferrer"
+          target="_blank"
+        >
+          Vitamin A
+        </a>
+      </div>
+      <div
+        className="microNutrientProgressBar"
+      >
+        <div
+          className="ant-progress ant-progress-line ant-progress-status-normal ant-progress-small"
+        >
+          <div>
+            <div
+              className="ant-progress-outer"
+            >
+              <div
+                className="ant-progress-inner"
+              >
+                <div
+                  className="ant-progress-bg"
+                  style={
+                    Object {
+                      "background": undefined,
+                      "borderRadius": "100px",
+                      "height": 6,
+                      "width": "0%",
+                    }
+                  }
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+        <span>
+          0
+          % 
+        </span>
+      </div>
+      <div
+        className="microNutrientAmount"
+      >
+        0
+         
+        μg
+      </div>
+    </div>
+  </div>
+  <div
+    className="microNutrientType"
+  >
+    <span
+      className="nutrientType"
+    >
+      Minerals
+    </span>
+    <div
+      className="microNutrient"
+    >
+      <div
+        className="microNutrientName"
+      >
+        <a
+          href="https://en.wikipedia.org/wiki/Chloride"
+          rel="noopener noreferrer"
+          target="_blank"
+        >
+          Chloride
+        </a>
+      </div>
+      <div
+        className="microNutrientProgressBar"
+      >
+        <div
+          className="ant-progress ant-progress-line ant-progress-status-normal ant-progress-small"
+        >
+          <div>
+            <div
+              className="ant-progress-outer"
+            >
+              <div
+                className="ant-progress-inner"
+              >
+                <div
+                  className="ant-progress-bg"
+                  style={
+                    Object {
+                      "background": undefined,
+                      "borderRadius": "100px",
+                      "height": 6,
+                      "width": "0%",
+                    }
+                  }
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+        <span>
+          0
+          % 
+        </span>
+      </div>
+      <div
+        className="microNutrientAmount"
+      >
+        0
+         
+        μg
+      </div>
+    </div>
+  </div>
+</div>
+`;

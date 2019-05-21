@@ -1,0 +1,31 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders correctly with data 1`] = `
+<div
+  className="macroNutrient"
+>
+  <div>
+    Example Macro
+  </div>
+  <div>
+    1000
+     
+    mg
+  </div>
+</div>
+`;
+
+exports[`renders correctly without data 1`] = `
+<div
+  className="macroNutrient"
+>
+  <div>
+    Example Macro
+  </div>
+  <div>
+    0
+     
+    
+  </div>
+</div>
+`;

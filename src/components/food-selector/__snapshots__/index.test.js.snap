@@ -1,0 +1,225 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders correctly with data 1`] = `
+<div
+  className="foodSelector"
+>
+  <div
+    className="ant-select-lg ant-select ant-select-enabled"
+    onBlur={[Function]}
+    onClick={[Function]}
+    onFocus={[Function]}
+    onMouseDown={[Function]}
+    onMouseOut={[Function]}
+    onMouseUp={[Function]}
+    onTouchStart={[Function]}
+    style={
+      Object {
+        "width": "100%",
+      }
+    }
+  >
+    <div
+      aria-autocomplete="list"
+      aria-controls="test-uuid"
+      aria-expanded={false}
+      aria-haspopup="true"
+      className="ant-select-selection
+            ant-select-selection--single"
+      data-gramm="false"
+      onKeyDown={[Function]}
+      role="combobox"
+      tabIndex={0}
+    >
+      <div
+        className="ant-select-selection__rendered"
+      >
+        <div
+          className="ant-select-selection__placeholder"
+          onClick={[Function]}
+          onMouseDown={[Function]}
+          style={
+            Object {
+              "WebkitUserSelect": "none",
+              "display": "block",
+              "userSelect": "none",
+            }
+          }
+          unselectable="on"
+        >
+          + Add food
+        </div>
+        <div
+          className="ant-select-search ant-select-search--inline"
+          style={
+            Object {
+              "display": "none",
+            }
+          }
+        >
+          <div
+            className="ant-select-search__field__wrap"
+          >
+            <input
+              autoComplete="off"
+              className="ant-select-search__field"
+              onChange={[Function]}
+              onKeyDown={[Function]}
+              value=""
+            />
+            <span
+              className="ant-select-search__field__mirror"
+            >
+              
+               
+            </span>
+          </div>
+        </div>
+      </div>
+      <span
+        className="ant-select-arrow"
+        onClick={[Function]}
+        style={
+          Object {
+            "WebkitUserSelect": "none",
+            "userSelect": "none",
+          }
+        }
+        unselectable="on"
+      >
+        <i
+          aria-label="icon: down"
+          className="anticon anticon-down ant-select-arrow-icon"
+        >
+          <svg
+            aria-hidden="true"
+            className=""
+            data-icon="down"
+            fill="currentColor"
+            focusable="false"
+            height="1em"
+            viewBox="64 64 896 896"
+            width="1em"
+          >
+            <path
+              d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"
+            />
+          </svg>
+        </i>
+      </span>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`renders correctly without data 1`] = `
+<div
+  className="foodSelector"
+>
+  <div
+    className="ant-select-lg ant-select ant-select-enabled"
+    onBlur={[Function]}
+    onClick={[Function]}
+    onFocus={[Function]}
+    onMouseDown={[Function]}
+    onMouseOut={[Function]}
+    onMouseUp={[Function]}
+    onTouchStart={[Function]}
+    style={
+      Object {
+        "width": "100%",
+      }
+    }
+  >
+    <div
+      aria-autocomplete="list"
+      aria-controls="test-uuid"
+      aria-expanded={false}
+      aria-haspopup="true"
+      className="ant-select-selection
+            ant-select-selection--single"
+      data-gramm="false"
+      onKeyDown={[Function]}
+      role="combobox"
+      tabIndex={0}
+    >
+      <div
+        className="ant-select-selection__rendered"
+      >
+        <div
+          className="ant-select-selection__placeholder"
+          onClick={[Function]}
+          onMouseDown={[Function]}
+          style={
+            Object {
+              "WebkitUserSelect": "none",
+              "display": "block",
+              "userSelect": "none",
+            }
+          }
+          unselectable="on"
+        >
+          + Add food
+        </div>
+        <div
+          className="ant-select-search ant-select-search--inline"
+          style={
+            Object {
+              "display": "none",
+            }
+          }
+        >
+          <div
+            className="ant-select-search__field__wrap"
+          >
+            <input
+              autoComplete="off"
+              className="ant-select-search__field"
+              onChange={[Function]}
+              onKeyDown={[Function]}
+              value=""
+            />
+            <span
+              className="ant-select-search__field__mirror"
+            >
+              
+               
+            </span>
+          </div>
+        </div>
+      </div>
+      <span
+        className="ant-select-arrow"
+        onClick={[Function]}
+        style={
+          Object {
+            "WebkitUserSelect": "none",
+            "userSelect": "none",
+          }
+        }
+        unselectable="on"
+      >
+        <i
+          aria-label="icon: down"
+          className="anticon anticon-down ant-select-arrow-icon"
+        >
+          <svg
+            aria-hidden="true"
+            className=""
+            data-icon="down"
+            fill="currentColor"
+            focusable="false"
+            height="1em"
+            viewBox="64 64 896 896"
+            width="1em"
+          >
+            <path
+              d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"
+            />
+          </svg>
+        </i>
+      </span>
+    </div>
+  </div>
+</div>
+`;
