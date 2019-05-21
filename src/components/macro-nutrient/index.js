@@ -11,12 +11,12 @@ export default class MacroNutrient extends Component {
     const { name, amount, units } = this.props
 
     return (
-      <React.Fragment>
+      <div className="macroNutrient">
         <div>{name}</div>
         <div>
           {amount} {units}
         </div>
-      </React.Fragment>
+      </div>
     )
   }
 }

@@ -30,7 +30,10 @@ export default class MacroPieChart extends Component {
 
   render() {
     return (
-      <React.Fragment>
+      <div
+        className="macroNutrient"
+        style={{ marginTop: '-10pt', display: 'flex', justifyContent: 'center' }}
+      >
         {this.getTotalMacroNutrients() === 0 ? (
           <Tooltip title="Macro Nutrients Ratio">
             <img style={{ opacity: '0.1' }} src={emptyGraph} alt="Empty Graph" />
@@ -46,7 +49,7 @@ export default class MacroPieChart extends Component {
             data={this.pieChartData()}
           />
         )}
-      </React.Fragment>
+      </div>
     )
   }
 }
