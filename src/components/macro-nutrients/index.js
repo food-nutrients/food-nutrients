@@ -5,6 +5,7 @@ import MacroPieChart from '../macro-pie-chart'
 import { defaultMacroNutrients } from './../calculations'
 
 import './../../App.css'
+import MacroNutrient from '../macro-nutrient'
 
 export default class MacroNutrients extends Component {
   static propTypes = {
@@ -18,10 +19,11 @@ export default class MacroNutrients extends Component {
     return (
       <div className="macroNutrients">
         <div className="macroNutrient">
-          <div>Calories</div>
-          <div>
-            {this.props.macroNutrients.caloriesInUnits} {this.props.macroNutrients.caloriesUnits}
-          </div>
+          <MacroNutrient
+            name="Calories"
+            amount={this.props.macroNutrients.caloriesInUnits}
+            units={this.props.macroNutrients.caloriesUnits}
+          />
         </div>
         <div
           className="macroNutrient"
@@ -34,23 +36,25 @@ export default class MacroNutrients extends Component {
           />
         </div>
         <div className="macroNutrient">
-          <div>Proteins</div>
-          <div>
-            {this.props.macroNutrients.proteinsInUnits} {this.props.macroNutrients.proteinUnits}
-          </div>
+          <MacroNutrient
+            name="Proteins"
+            amount={this.props.macroNutrients.proteinsInUnits}
+            units={this.props.macroNutrients.proteinUnits}
+          />
         </div>
         <div className="macroNutrient">
-          <div>Carbs</div>
-          <div>
-            {this.props.macroNutrients.carbohydratesInUnits}{' '}
-            {this.props.macroNutrients.carbohydratesUnits}
-          </div>
+          <MacroNutrient
+            name="Carbs"
+            amount={this.props.macroNutrients.carbohydratesInUnits}
+            units={this.props.macroNutrients.carbohydratesUnits}
+          />
         </div>
         <div className="macroNutrient">
-          <div>Fats</div>
-          <div>
-            {this.props.macroNutrients.fatInUnits} {this.props.macroNutrients.fatUnits}
-          </div>
+          <MacroNutrient
+            name="Fats"
+            amount={this.props.macroNutrients.fatInUnits}
+            units={this.props.macroNutrients.fatUnits}
+          />
         </div>
       </div>
     )
