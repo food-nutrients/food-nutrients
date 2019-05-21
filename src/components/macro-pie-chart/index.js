@@ -10,7 +10,7 @@ export default class MacroPieChart extends Component {
   static propTypes = {
     proteins: PropTypes.number.isRequired,
     carbohydrates: PropTypes.number.isRequired,
-    protfateins: PropTypes.number.isRequired,
+    fat: PropTypes.number.isRequired,
   }
   calculatePercentage = (item, total) => parseInt((item * 100) / total, 10) || 0
   getTotalMacroNutrients = () => {
