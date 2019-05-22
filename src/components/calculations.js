@@ -21,46 +21,42 @@ export const calculateMacroNutrients = selectedFoods => {
     macroNutrients.carbohydrates += selectedFood.food.carbohydrates * selectedFood.amount
     macroNutrients.fat += selectedFood.food.fat * selectedFood.amount
   })
-  macroNutrients.caloriesInUnits = macroNutrients.calories
-  macroNutrients.proteinsInUnits = macroNutrients.proteins
-  macroNutrients.carbohydratesInUnits = macroNutrients.carbohydrates
-  macroNutrients.fatInUnits = macroNutrients.fat
-  if (macroNutrients.proteinsInUnits >= 1000) {
-    macroNutrients.proteinsInUnits /= 1000
-    macroNutrients.proteinUnits = 'mg'
-  }
-  if (macroNutrients.proteinsInUnits >= 1000) {
-    macroNutrients.proteinsInUnits /= 1000
-    macroNutrients.proteinUnits = 'g'
-  }
-  if (macroNutrients.carbohydratesInUnits >= 1000) {
-    macroNutrients.carbohydratesInUnits /= 1000
-    macroNutrients.carbohydratesUnits = 'mg'
-  }
-  if (macroNutrients.carbohydratesInUnits >= 1000) {
-    macroNutrients.carbohydratesInUnits /= 1000
-    macroNutrients.carbohydratesUnits = 'g'
-  }
-  if (macroNutrients.fatInUnits >= 1000) {
-    macroNutrients.fatInUnits /= 1000
-    macroNutrients.fatUnits = 'mg'
-  }
-  if (macroNutrients.fatInUnits >= 1000) {
-    macroNutrients.fatInUnits /= 1000
-    macroNutrients.fatUnits = 'g'
-  }
 
-  // Rounding
-  macroNutrients.caloriesInUnits = parseFloat(parseFloat(macroNutrients.caloriesInUnits).toFixed(2))
-  macroNutrients.proteinsInUnits = parseFloat(parseFloat(macroNutrients.proteinsInUnits).toFixed(2))
-  macroNutrients.carbohydratesInUnits = parseFloat(
-    parseFloat(macroNutrients.carbohydratesInUnits).toFixed(2),
-  )
-  macroNutrients.fatInUnits = parseFloat(parseFloat(macroNutrients.fatInUnits).toFixed(2))
+  const ca = unitize(macroNutrients.calories, ['kcal'])
+  macroNutrients.caloriesInUnits = ca.amount
+  macroNutrients.caloriesUnits = ca.unit
+
+  const p = unitize(macroNutrients.proteins, ['g', 'mg', 'μg'])
+  macroNutrients.proteinsInUnits = p.amount
+  macroNutrients.proteinUnits = p.unit
+
+  const c = unitize(macroNutrients.carbohydrates, ['g', 'mg', 'μg'])
+  macroNutrients.carbohydratesInUnits = c.amount
+  macroNutrients.carbohydratesUnits = c.unit
+
+  const f = unitize(macroNutrients.fat, ['g', 'mg', 'μg'])
+  macroNutrients.fatInUnits = f.amount
+  macroNutrients.fatUnits = f.unit
 
   return macroNutrients
 }
-
+export const unitize = (amount, units) => {
+  let unit = units.pop()
+  while (amount >= 1000) {
+    if (units.length === 0) {
+      return {
+        amount: parseFloat(parseFloat(amount).toFixed(2)),
+        unit,
+      }
+    }
+    amount /= 1000
+    unit = units.pop()
+  }
+  return {
+    amount: parseFloat(parseFloat(amount).toFixed(2)),
+    unit,
+  }
+}
 export const calculateMicroNutrients = (selectedFoods, nutrients) => {
   const microNutrients = {}
   nutrients.forEach(nutrient => {
@@ -81,19 +77,9 @@ export const calculateMicroNutrients = (selectedFoods, nutrients) => {
       10,
     )
     microNutrients[nutrient.name].amount = parseInt(microNutrients[nutrient.name].amount, 10)
-    microNutrients[nutrient.name].amountInUnits = microNutrients[nutrient.name].amount
-    microNutrients[nutrient.name].amountUnit = 'μg'
-    if (microNutrients[nutrient.name].amountInUnits >= 1000) {
-      microNutrients[nutrient.name].amountInUnits /= 1000
-      microNutrients[nutrient.name].amountUnit = 'mg'
-    }
-    if (microNutrients[nutrient.name].amountInUnits >= 1000) {
-      microNutrients[nutrient.name].amountInUnits /= 1000
-      microNutrients[nutrient.name].amountUnit = 'g'
-    }
-    microNutrients[nutrient.name].amountInUnits = parseFloat(
-      parseFloat(microNutrients[nutrient.name].amountInUnits).toFixed(2),
-    )
+    const r = unitize(microNutrients[nutrient.name].amount, ['g', 'mg', 'μg'])
+    microNutrients[nutrient.name].amountInUnits = r.amount
+    microNutrients[nutrient.name].amountUnit = r.unit
   })
 
   return microNutrients

@@ -173,3 +173,20 @@ test('microNutrients multiple foods', () => {
     },
   })
 })
+test('test unitize method', () => {
+  const result = calculations.unitize(4, ['g', 'mg', 'μg'])
+  expect(result).toStrictEqual({ amount: 4, unit: 'μg' })
+})
+
+test('test unitize method one up', () => {
+  const result = calculations.unitize(4000, ['g', 'mg', 'μg'])
+  expect(result).toStrictEqual({ amount: 4, unit: 'mg' })
+})
+test('test unitize method two up', () => {
+  const result = calculations.unitize(4000000, ['g', 'mg', 'μg'])
+  expect(result).toStrictEqual({ amount: 4, unit: 'g' })
+})
+test('test unitize method three up', () => {
+  const result = calculations.unitize(4000000000, ['g', 'mg', 'μg'])
+  expect(result).toStrictEqual({ amount: 4000, unit: 'g' })
+})
