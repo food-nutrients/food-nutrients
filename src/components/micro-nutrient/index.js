@@ -36,36 +36,15 @@ export default class MicroNutrient extends Component {
     )
   }
   static getDerivedStateFromProps(newProps, prevState) {
-    if (
-      newProps.microNutrientData === null &&
-      (prevState.amount !== 0 ||
-        prevState.unit !== 'μg' ||
-        prevState.name !== newProps.microNutrient.name ||
-        prevState.wiki !== newProps.microNutrient.wiki)
-    ) {
-      return {
-        name: newProps.microNutrient.name,
-        wiki: newProps.microNutrient.wiki,
-        percentage: 0,
-        amount: 0,
-        unit: 'μg',
-        nutrientStatus: 'normal',
-      }
-    }
-
-    if (
-      newProps.microNutrientData &&
-      (newProps.microNutrientData.amount !== prevState.amount ||
-        newProps.microNutrientData.amountUnit !== prevState.unit)
-    ) {
-      return {
-        name: newProps.microNutrient.name,
-        wiki: newProps.microNutrient.wiki,
-        percentage: newProps.microNutrientData.percentage,
-        amount: newProps.microNutrientData.amountInUnits,
-        unit: newProps.microNutrientData.amountUnit,
-        nutrientStatus: MicroNutrient.nutrientStatus(newProps.microNutrientData),
-      }
+    return {
+      name: newProps.microNutrient.name,
+      wiki: newProps.microNutrient.wiki,
+      percentage: newProps.microNutrientData ? newProps.microNutrientData.percentage : 0,
+      amount: newProps.microNutrientData ? newProps.microNutrientData.amountInUnits : 0,
+      unit: newProps.microNutrientData ? newProps.microNutrientData.amountUnit : 'μg',
+      nutrientStatus: newProps.microNutrientData
+        ? MicroNutrient.nutrientStatus(newProps.microNutrientData)
+        : 'normal',
     }
   }
 
