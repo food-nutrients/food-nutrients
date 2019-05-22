@@ -24,7 +24,7 @@ export default class FoodSelector extends Component {
           spellcheck="false"
           data-gramm="false"
           showSearch
-          style={{ width: '100%' }}
+          className="foodSelectorInput"
           size="large"
           value={this.state.selectedFood}
           placeholder="+ Add food"

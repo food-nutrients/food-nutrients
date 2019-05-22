@@ -2,14 +2,7 @@
 
 exports[`renders correctly 1`] = `
 <div
-  className="macroNutrient"
-  style={
-    Object {
-      "display": "flex",
-      "justifyContent": "center",
-      "marginTop": "-10pt",
-    }
-  }
+  className="macroNutrient macroChart"
 >
   <div
     id="macro_ratio_chart"

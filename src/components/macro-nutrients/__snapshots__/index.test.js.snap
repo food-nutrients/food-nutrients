@@ -53,14 +53,7 @@ exports[`renders correctly with data 1`] = `
     </div>
   </div>
   <div
-    className="macroNutrient"
-    style={
-      Object {
-        "display": "flex",
-        "justifyContent": "center",
-        "marginTop": "-10pt",
-      }
-    }
+    className="macroNutrient macroChart"
   >
     <div
       id="macro_ratio_chart"
@@ -135,25 +128,14 @@ exports[`renders correctly without data 1`] = `
     </div>
   </div>
   <div
-    className="macroNutrient"
-    style={
-      Object {
-        "display": "flex",
-        "justifyContent": "center",
-        "marginTop": "-10pt",
-      }
-    }
+    className="macroNutrient macroChart"
   >
     <img
       alt="Empty Graph"
+      className="macroChartEmpty"
       onMouseEnter={[Function]}
       onMouseLeave={[Function]}
       src="graph_placeholder.png"
-      style={
-        Object {
-          "opacity": "0.1",
-        }
-      }
     />
   </div>
 </div>

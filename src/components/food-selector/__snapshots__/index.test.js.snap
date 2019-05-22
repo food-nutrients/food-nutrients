@@ -5,7 +5,7 @@ exports[`renders correctly with data 1`] = `
   className="foodSelector"
 >
   <div
-    className="ant-select-lg ant-select ant-select-enabled"
+    className="ant-select-lg foodSelectorInput ant-select ant-select-enabled"
     onBlur={[Function]}
     onClick={[Function]}
     onFocus={[Function]}
@@ -13,11 +13,6 @@ exports[`renders correctly with data 1`] = `
     onMouseOut={[Function]}
     onMouseUp={[Function]}
     onTouchStart={[Function]}
-    style={
-      Object {
-        "width": "100%",
-      }
-    }
   >
     <div
       aria-autocomplete="list"
@@ -117,7 +112,7 @@ exports[`renders correctly without data 1`] = `
   className="foodSelector"
 >
   <div
-    className="ant-select-lg ant-select ant-select-enabled"
+    className="ant-select-lg foodSelectorInput ant-select ant-select-enabled"
     onBlur={[Function]}
     onClick={[Function]}
     onFocus={[Function]}
@@ -125,11 +120,6 @@ exports[`renders correctly without data 1`] = `
     onMouseOut={[Function]}
     onMouseUp={[Function]}
     onTouchStart={[Function]}
-    style={
-      Object {
-        "width": "100%",
-      }
-    }
   >
     <div
       aria-autocomplete="list"

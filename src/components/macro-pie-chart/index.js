@@ -6,6 +6,7 @@ import Chart from 'chart.js'
 import emptyGraph from './../../imgs/graph_placeholder.png'
 
 ReactChartkick.addAdapter(Chart)
+
 export default class MacroPieChart extends Component {
   static propTypes = {
     proteins: PropTypes.number.isRequired,
@@ -30,13 +31,10 @@ export default class MacroPieChart extends Component {
 
   render() {
     return (
-      <div
-        className="macroNutrient"
-        style={{ marginTop: '-10pt', display: 'flex', justifyContent: 'center' }}
-      >
+      <div className="macroNutrient macroChart">
         {this.getTotalMacroNutrients() === 0 ? (
           <Tooltip title="Macro Nutrients Ratio">
-            <img style={{ opacity: '0.1' }} src={emptyGraph} alt="Empty Graph" />
+            <img className="macroChartEmpty" src={emptyGraph} alt="Empty Graph" />
           </Tooltip>
         ) : (
           <PieChart

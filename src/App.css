@@ -39,6 +39,10 @@ code {
   margin-top: 5pt;
 }
 
+.foodSelectorInput {
+  width: 100%;
+}
+
 .rightPanel {
   flex: 2;
   margin-top: 10pt;
@@ -69,6 +73,16 @@ code {
 .macroNutrient {
   flex: 1;
   min-width: 100px;
+}
+
+.macroChart {
+  margin-top: -10pt;
+  display: flex;
+  justify-content: center;
+}
+
+.macroChartEmpty {
+  opacity: 0.1
 }
 
 .macroNutrient div:first-child {

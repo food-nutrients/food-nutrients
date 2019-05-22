@@ -20,7 +20,7 @@ exports[`renders correctly 1`] = `
         className="foodSelector"
       >
         <div
-          className="ant-select-lg ant-select ant-select-enabled"
+          className="ant-select-lg foodSelectorInput ant-select ant-select-enabled"
           onBlur={[Function]}
           onClick={[Function]}
           onFocus={[Function]}
@@ -28,11 +28,6 @@ exports[`renders correctly 1`] = `
           onMouseOut={[Function]}
           onMouseUp={[Function]}
           onTouchStart={[Function]}
-          style={
-            Object {
-              "width": "100%",
-            }
-          }
         >
           <div
             aria-autocomplete="list"
@@ -205,25 +200,14 @@ exports[`renders correctly 1`] = `
         </div>
       </div>
       <div
-        className="macroNutrient"
-        style={
-          Object {
-            "display": "flex",
-            "justifyContent": "center",
-            "marginTop": "-10pt",
-          }
-        }
+        className="macroNutrient macroChart"
       >
         <img
           alt="Empty Graph"
+          className="macroChartEmpty"
           onMouseEnter={[Function]}
           onMouseLeave={[Function]}
           src="graph_placeholder.png"
-          style={
-            Object {
-              "opacity": "0.1",
-            }
-          }
         />
       </div>
     </div>
