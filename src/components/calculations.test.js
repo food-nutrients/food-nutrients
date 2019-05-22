@@ -93,3 +93,83 @@ test('macroNutrients multiple foods', () => {
     fatInUnits: 90,
   })
 })
+
+test('microNutrients default case', () => {
+  const selectedFoods = []
+  const nutrients = [
+    {
+      name: 'Vitamin A',
+      rda: 900,
+      wiki: 'https://en.wikipedia.org/wiki/Vitamin_A',
+      required: true,
+      type: 'Vitamins',
+      tui: 3000,
+    },
+  ]
+  const result = calculations.calculateMicroNutrients(selectedFoods, nutrients)
+  expect(result).toStrictEqual({
+    'Vitamin A': {
+      rda: 900,
+      amount: 0,
+      amountInUnits: 0,
+      amountUnit: 'μg',
+      percentage: 0,
+    },
+  })
+})
+test('microNutrients multiple foods', () => {
+  const selectedFoods = [
+    {
+      amount: 100,
+      food: {
+        name: 'Beef liver',
+        fat: 53000,
+        calories: 1.91,
+        proteins: 291000,
+        carbohydrates: 51000,
+        serving: 100,
+        nutrients: {
+          'Vitamin C': 19,
+          'Vitamin B12': 0.71,
+          'Vitamin A': 94.42,
+        },
+      },
+    },
+    {
+      amount: 100,
+      food: {
+        name: 'Chicken liver',
+        fat: 65000,
+        calories: 1.67,
+        proteins: 245000,
+        carbohydrates: 9000,
+        serving: 100,
+        nutrients: {
+          'Vitamin C': 279,
+          'Vitamin B12': 0.17,
+          'Vitamin A': 39.81,
+        },
+      },
+    },
+  ]
+  const nutrients = [
+    {
+      name: 'Vitamin A',
+      rda: 900,
+      wiki: 'https://en.wikipedia.org/wiki/Vitamin_A',
+      required: true,
+      type: 'Vitamins',
+      tui: 3000,
+    },
+  ]
+  const result = calculations.calculateMicroNutrients(selectedFoods, nutrients)
+  expect(result).toStrictEqual({
+    'Vitamin A': {
+      rda: 900,
+      amount: 13423,
+      amountInUnits: 13.42,
+      amountUnit: 'mg',
+      percentage: 1491,
+    },
+  })
+})

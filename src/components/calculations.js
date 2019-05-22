@@ -65,10 +65,9 @@ export const calculateMicroNutrients = (selectedFoods, nutrients) => {
   const microNutrients = {}
   nutrients.forEach(nutrient => {
     microNutrients[nutrient.name] = {
-      ...nutrient,
+      rda: nutrient.rda,
       amount: 0,
       percentage: 0,
-      status: undefined,
     }
     selectedFoods.forEach(selectedFood => {
       const foodNutrients = selectedFood.food.nutrients[nutrient.name]
@@ -78,7 +77,7 @@ export const calculateMicroNutrients = (selectedFoods, nutrients) => {
       microNutrients[nutrient.name].amount += (foodNutrients || 0) * selectedFood.amount
     })
     microNutrients[nutrient.name].percentage = parseInt(
-      (microNutrients[nutrient.name].amount * 100) / microNutrients[nutrient.name].rda,
+      (microNutrients[nutrient.name].amount * 100) / nutrient.rda,
       10,
     )
     microNutrients[nutrient.name].amount = parseInt(microNutrients[nutrient.name].amount, 10)
