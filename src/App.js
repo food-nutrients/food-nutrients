@@ -30,6 +30,11 @@ export default class App extends Component {
     })
   }
 
+  updateNutrients = selectedFoods => {
+    this.updateMacroNutrients(selectedFoods)
+    this.updateMicroNutrients(selectedFoods)
+  }
+
   componentDidMount() {
     initTutorial()
   }
@@ -41,10 +46,7 @@ export default class App extends Component {
           <div className="logo">
             <img alt="Logo" src={logo} />
           </div>
-          <Foods
-            updateMacroNutrients={this.updateMacroNutrients}
-            updateMicroNutrients={this.updateMicroNutrients}
-          />
+          <Foods updateNutrients={this.updateNutrients} />
         </div>
         <div className="rightPanel">
           <MacroNutrients macroNutrients={this.state.macroNutrients} />

@@ -8,8 +8,7 @@ import foods from './../../data/foods.json'
 
 export default class Foods extends Component {
   static propTypes = {
-    updateMacroNutrients: PropTypes.func.isRequired,
-    updateMicroNutrients: PropTypes.func.isRequired,
+    updateNutrients: PropTypes.func.isRequired,
   }
   state = {
     selectedFoods: [],
@@ -27,8 +26,7 @@ export default class Foods extends Component {
         ],
       },
       () => {
-        this.props.updateMacroNutrients(this.state.selectedFoods)
-        this.props.updateMicroNutrients(this.state.selectedFoods)
+        this.props.updateNutrients(this.state.selectedFoods)
         this.updateFoodSelector()
       },
     )
@@ -44,8 +42,7 @@ export default class Foods extends Component {
         selectedFoods: updatedSelectedFoods,
       },
       () => {
-        this.props.updateMacroNutrients(this.state.selectedFoods)
-        this.props.updateMicroNutrients(this.state.selectedFoods)
+        this.props.updateNutrients(this.state.selectedFoods)
         this.updateFoodSelector()
       },
     )
@@ -57,8 +54,7 @@ export default class Foods extends Component {
       $splice: [[updatedFoodIndex, 1, updatedSelectedFood]],
     })
     this.setState({ selectedFoods: updatedSelectedFoods }, () => {
-      this.props.updateMacroNutrients(this.state.selectedFoods)
-      this.props.updateMicroNutrients(this.state.selectedFoods)
+      this.props.updateNutrients(this.state.selectedFoods)
     })
   }
   updateFoodSelector = () => {

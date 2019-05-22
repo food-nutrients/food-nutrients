@@ -3,8 +3,6 @@ import Foods from './index'
 import renderer from 'react-test-renderer'
 
 it('renders correctly', () => {
-  const tree = renderer
-    .create(<Foods updateMacroNutrients={() => {}} updateMicroNutrients={() => {}} />)
-    .toJSON()
+  const tree = renderer.create(<Foods updateNutrients={() => {}} />).toJSON()
   expect(tree).toMatchSnapshot()
 })
