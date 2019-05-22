@@ -10,21 +10,27 @@ export default () => {
       },
       useModalOverlay: true,
     })
-    tour.addStep('foods', {
-      text: 'Select the foods from the dropdown',
-      attachTo: '.foodSelector bottom',
-      buttons: [{ text: 'Next', action: tour.next }],
-    })
-    tour.addStep('macro', {
-      text: 'Then you will see the total calories and macro nutrients.',
-      attachTo: '.macroNutrients bottom',
-      buttons: [{ text: 'Next', action: tour.next }],
-    })
-    tour.addStep('micro', {
-      text: 'And also all micro nutrients and % of daily recommended values.',
-      attachTo: '.microNutrients left',
-      buttons: [{ text: 'Thanks, enjoy!', action: tour.next }],
-    })
+    const steps = [
+      {
+        name: 'foods',
+        text: 'Select the foods from the dropdown',
+        attachTo: '.foodSelector bottom',
+        buttons: [{ text: 'Next', action: tour.next }],
+      },
+      {
+        name: 'macro',
+        text: 'Then you will see the total calories and macro nutrients.',
+        attachTo: '.macroNutrients bottom',
+        buttons: [{ text: 'Next', action: tour.next }],
+      },
+      {
+        name: 'micro',
+        text: 'And also all micro nutrients and % of daily recommended values.',
+        attachTo: '.microNutrients left',
+        buttons: [{ text: 'Thanks, enjoy!', action: tour.next }],
+      },
+    ]
+    steps.forEach(step => tour.addStep(step.name, step))
     setTimeout(() => {
       tour.start()
     }, 1000)
