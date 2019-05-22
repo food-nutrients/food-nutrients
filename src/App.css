@@ -229,6 +229,8 @@ input[type='number'] {
   -moz-animation: flickerAnimation 2s infinite;
   -o-animation: flickerAnimation 2s infinite;
   animation: flickerAnimation 2s infinite;
+  font-size: 50pt;
+  color: gray;
 }
 
 .github-corner:hover .octo-arm {

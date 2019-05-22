@@ -108,14 +108,7 @@ export default class App extends Component {
           />
           {this.state.selectedFoods.length === 0 && (
             <div className="addFoods">
-              <Icon
-                className="animate-flicker"
-                style={{
-                  fontSize: '50pt',
-                  color: 'gray',
-                }}
-                type="arrow-up"
-              />
+              <Icon className="animate-flicker" type="arrow-up" />
             </div>
           )}
           {this.state.selectedFoods.length > 0 && (
