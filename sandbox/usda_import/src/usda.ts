@@ -1,7 +1,5 @@
 import axios from 'axios';
 import fs from 'fs-extra';
-import defaultFoodFormat from './defaultFoodFormat';
-
 
 class USDA {
     async getFoodByID(foodId: string, access_token: string): Promise<any> {
@@ -12,7 +10,7 @@ class USDA {
         try {
             const food = JSON.parse(await fs.readFile(`foods/${foodId}.json`, 'utf-8'));
             return food;
-        } catch(e) {
+        } catch (e) {
             const food = await this.getFoodByID(foodId, access_token);
             await fs.writeFile(`foods/${foodId}.json`, JSON.stringify(food, null, 4));
             return JSON.parse(await fs.readFile(`foods/${foodId}.json`, 'utf-8'));
@@ -26,14 +24,14 @@ class USDA {
             /* 
                 We divide by 100 because of how we store the nutrients - we can easly multiply them by 100 grams (serving size). We store them as nutrient per 1 g.
             */
-            if (nutrient.unit === 'µg') return nutrient.value  / 100;
+            if (nutrient.unit === 'µg') return nutrient.value / 100;
             if (nutrient.unit === 'mg') return nutrient.value * 1000 / 100;
             if (nutrient.unit === 'g') return nutrient.value * 1000 * 1000 / 100;
             if (nutrient.unit === 'kcal') return nutrient.value / 100;
-            
+
             throw Error(`Unrecognized unit ${nutrient.unit}`);
         }
-        return Object.assign(defaultFoodFormat, {
+        return {
             name: food.desc.name,
             usda_id: food.desc.ndbno,
             calories: get(208),
@@ -82,12 +80,12 @@ class USDA {
                 "Valine": get(510),
                 "Histidine": get(512)
             }
-        });
+        }
     }
 }
 
-(async function() {
-    if(process.argv.length !== 3) {
+(async function () {
+    if (process.argv.length !== 3) {
         console.log('USDA Food Data Extractor');
         console.log('=======================');
         console.log('Usage: node dist/usda.js [usda_id]');
@@ -95,7 +93,7 @@ class USDA {
         console.log('Example Usage: node dist/usda.js 11564');
         process.exit()
     }
-    const usda = new USDA()
+    const usda = new USDA();
     const access_token = 'NVedpClwdoyIIuXpeWNlkMnBeABnK922mcZwhqPv';
     const food = await usda.cachedGetFoodById(process.argv[2], access_token);
     const formattedFood = usda.formatFood(food);
