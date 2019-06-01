@@ -1,5 +1,5 @@
 const calculations = require('./calculations.js')
-
+const RxJS = require('rxjs')
 test('macroNutrients calculation method exists', () => {
   expect(typeof calculations.calculateMacroNutrients).toBe('function')
 })
@@ -10,7 +10,8 @@ test('calculateMicroNutrients calculation method exists', () => {
 
 test('macroNutrients default case', () => {
   const selectedFoods = []
-  const result = calculations.calculateMacroNutrients(selectedFoods)
+  let selectedFoods$ = RxJS.from(selectedFoods)
+  const result = calculations.calculateMacroNutrients(selectedFoods$)
   expect(result).toStrictEqual({
     calories: 0,
     caloriesUnits: 'kcal',
@@ -39,7 +40,8 @@ test('macroNutrients single food', () => {
       },
     },
   ]
-  const result = calculations.calculateMacroNutrients(selectedFoods)
+  let selectedFoods$ = RxJS.from(selectedFoods)
+  const result = calculations.calculateMacroNutrients(selectedFoods$)
   expect(result).toStrictEqual({
     calories: 5000,
     caloriesUnits: 'kcal',
@@ -77,7 +79,8 @@ test('macroNutrients multiple foods', () => {
       },
     },
   ]
-  const result = calculations.calculateMacroNutrients(selectedFoods)
+  let selectedFoods$ = RxJS.from(selectedFoods)
+  const result = calculations.calculateMacroNutrients(selectedFoods$)
   expect(result).toStrictEqual({
     calories: 13400,
     caloriesUnits: 'kcal',
@@ -96,6 +99,7 @@ test('macroNutrients multiple foods', () => {
 
 test('microNutrients default case', () => {
   const selectedFoods = []
+
   const nutrients = [
     {
       name: 'Vitamin A',
@@ -106,7 +110,9 @@ test('microNutrients default case', () => {
       tui: 3000,
     },
   ]
-  const result = calculations.calculateMicroNutrients(selectedFoods, nutrients)
+  let selectedFoods$ = RxJS.from(selectedFoods)
+  let nutrients$ = RxJS.from(nutrients)
+  const result = calculations.calculateMicroNutrients(selectedFoods$, nutrients$)
   expect(result).toStrictEqual({
     'Vitamin A': {
       rda: 900,
@@ -162,7 +168,9 @@ test('microNutrients multiple foods', () => {
       tui: 3000,
     },
   ]
-  const result = calculations.calculateMicroNutrients(selectedFoods, nutrients)
+  let selectedFoods$ = RxJS.from(selectedFoods)
+  let nutrients$ = RxJS.from(nutrients)
+  const result = calculations.calculateMicroNutrients(selectedFoods$, nutrients$)
   expect(result).toStrictEqual({
     'Vitamin A': {
       rda: 900,

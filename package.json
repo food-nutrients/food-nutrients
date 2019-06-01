@@ -41,6 +41,7 @@
     "react-device-detect": "1.6.2",
     "react-dom": "^16.8.6",
     "react-scripts": "3.0.1",
+    "rxjs": "6.5.2",
     "shepherd.js": "2.8.0"
   },
   "eslintConfig": {
@@ -59,9 +60,9 @@
     ]
   },
   "devDependencies": {
-    "@babel/plugin-transform-react-jsx": "7.3.0",
     "@babel/plugin-proposal-class-properties": "7.4.4",
     "@babel/plugin-transform-modules-commonjs": "7.4.4",
+    "@babel/plugin-transform-react-jsx": "7.3.0",
     "jest-transform-stub": "2.0.0",
     "react-test-renderer": "16.8.6"
   }
