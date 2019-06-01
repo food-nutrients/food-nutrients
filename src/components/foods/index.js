@@ -5,6 +5,7 @@ import SelectedFood from './../selected-food'
 import { Icon } from 'antd'
 import update from 'immutability-helper'
 import foods from './../../data/foods.json'
+import { from } from 'rxjs'
 
 export default class Foods extends Component {
   static propTypes = {
@@ -26,7 +27,7 @@ export default class Foods extends Component {
         ],
       },
       () => {
-        this.props.updateNutrients(this.state.selectedFoods)
+        this.props.updateNutrients(from(this.state.selectedFoods))
         this.updateFoodSelector()
       },
     )
@@ -42,7 +43,7 @@ export default class Foods extends Component {
         selectedFoods: updatedSelectedFoods,
       },
       () => {
-        this.props.updateNutrients(this.state.selectedFoods)
+        this.props.updateNutrients(from(this.state.selectedFoods))
         this.updateFoodSelector()
       },
     )
@@ -54,7 +55,7 @@ export default class Foods extends Component {
       $splice: [[updatedFoodIndex, 1, updatedSelectedFood]],
     })
     this.setState({ selectedFoods: updatedSelectedFoods }, () => {
-      this.props.updateNutrients(this.state.selectedFoods)
+      this.props.updateNutrients(from(this.state.selectedFoods))
     })
   }
   updateFoodSelector = () => {
