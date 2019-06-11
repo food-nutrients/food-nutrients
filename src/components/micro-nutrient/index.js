@@ -10,10 +10,10 @@ export default class MicroNutrient extends Component {
       wiki: PropTypes.string.isRequired,
     }).isRequired,
     microNutrientData: PropTypes.shape({
+      raw: PropTypes.number.isRequired,
       amount: PropTypes.number.isRequired,
-      amountInUnits: PropTypes.number.isRequired,
       percentage: PropTypes.number.isRequired,
-      amountUnit: PropTypes.string.isRequired,
+      unit: PropTypes.string.isRequired,
     }),
   }
 
@@ -24,15 +24,16 @@ export default class MicroNutrient extends Component {
     name: '',
     wiki: '#',
     percentage: 0,
+    raw: 0,
     amount: 0,
     unit: 'μg',
     nutrientStatus: 'normal',
   }
   shouldComponentUpdate(nextProps) {
-    if (!nextProps.microNutrientData) return this.state.amount !== 0 || this.state.name === ''
+    if (!nextProps.microNutrientData) return this.state.raw !== 0 || this.state.name === ''
     return (
-      nextProps.microNutrientData.amount !== this.state.amount ||
-      nextProps.microNutrientData.amountUnit !== this.state.unit
+      nextProps.microNutrientData.raw !== this.state.raw ||
+      nextProps.microNutrientData.unit !== this.state.unit
     )
   }
   static getDerivedStateFromProps(newProps, prevState) {
@@ -40,8 +41,9 @@ export default class MicroNutrient extends Component {
       name: newProps.microNutrient.name,
       wiki: newProps.microNutrient.wiki,
       percentage: newProps.microNutrientData ? newProps.microNutrientData.percentage : 0,
-      amount: newProps.microNutrientData ? newProps.microNutrientData.amountInUnits : 0,
-      unit: newProps.microNutrientData ? newProps.microNutrientData.amountUnit : 'μg',
+      raw: newProps.microNutrientData ? newProps.microNutrientData.raw : 0,
+      amount: newProps.microNutrientData ? newProps.microNutrientData.amount : 0,
+      unit: newProps.microNutrientData ? newProps.microNutrientData.unit : 'μg',
       nutrientStatus: newProps.microNutrientData
         ? MicroNutrient.nutrientStatus(newProps.microNutrientData)
         : 'normal',
@@ -50,12 +52,9 @@ export default class MicroNutrient extends Component {
 
   static nutrientStatus(microNutrient) {
     let barType = 'normal'
-    if (
-      microNutrient.amount >= microNutrient.rda &&
-      microNutrient.amount < 1.5 * microNutrient.rda
-    ) {
+    if (microNutrient.raw >= microNutrient.rda && microNutrient.raw < 1.5 * microNutrient.rda) {
       barType = 'success'
-    } else if (microNutrient.amount >= 1.5 * microNutrient.rda) {
+    } else if (microNutrient.raw >= 1.5 * microNutrient.rda) {
       barType = 'exception'
     }
     return barType

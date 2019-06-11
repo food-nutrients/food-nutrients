@@ -8,10 +8,10 @@ it('renders correctly with data', () => {
     wiki: 'https://en.wikipedia.org/wiki/Vitamin_A',
   }
   const microNutrientData = {
-    amount: 50,
-    amountInUnits: 5,
+    raw: 50,
+    amount: 5,
     percentage: 30,
-    amountUnit: 'mg',
+    unit: 'mg',
   }
   const tree = renderer
     .create(<MicroNutrient microNutrient={microNutrient} microNutrientData={microNutrientData} />)

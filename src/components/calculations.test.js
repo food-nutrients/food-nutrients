@@ -152,9 +152,9 @@ test('microNutrients default case', () => {
   expect(result).toStrictEqual({
     'Vitamin A': {
       rda: 900,
+      raw: 0,
       amount: 0,
-      amountInUnits: 0,
-      amountUnit: 'μg',
+      unit: 'μg',
       percentage: 0,
     },
   })
@@ -210,9 +210,9 @@ test('microNutrients multiple foods', () => {
   expect(result).toStrictEqual({
     'Vitamin A': {
       rda: 900,
-      amount: 13423,
-      amountInUnits: 13.42,
-      amountUnit: 'mg',
+      raw: 13423,
+      amount: 13.42,
+      unit: 'mg',
       percentage: 1491,
     },
   })

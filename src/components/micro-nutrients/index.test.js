@@ -31,10 +31,10 @@ it('renders correctly with micro nutrients data', () => {
         type: 'Vitamins',
         tui: 3000,
       },
-      amount: 50,
-      amountInUnits: 5,
+      raw: 50,
+      amount: 5,
       percentage: 30,
-      amountUnit: 'mg',
+      unit: 'mg',
     },
     Chloride: {
       nutrient: {
@@ -45,10 +45,10 @@ it('renders correctly with micro nutrients data', () => {
         type: 'Minerals',
         tui: 15000000,
       },
-      amount: 100,
-      amountInUnits: 10,
+      raw: 100,
+      amount: 10,
       percentage: 40,
-      amountUnit: 'mg',
+      unit: 'mg',
     },
   }
   const tree = renderer

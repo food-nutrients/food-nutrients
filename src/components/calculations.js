@@ -72,9 +72,9 @@ const getMicroNutrientsDefaults = nutrients$ => {
       if (!microNutrients[nutrient.name]) {
         microNutrients[nutrient.name] = {
           rda: nutrient.rda,
+          raw: 0,
           amount: 0,
-          amountInUnits: 0,
-          amountUnit: 'μg',
+          unit: 'μg',
           percentage: 0,
         }
       }
@@ -84,6 +84,8 @@ const getMicroNutrientsDefaults = nutrients$ => {
   )
   return microNutrients
 }
+const percentage = (amount, total) => parseInt((amount * 100) / total, 10)
+
 export const calculateMicroNutrients = (selectedFoods$, nutrients$) => {
   const microNutrients = getMicroNutrientsDefaults(nutrients$)
 
@@ -91,22 +93,19 @@ export const calculateMicroNutrients = (selectedFoods$, nutrients$) => {
     nutrients$.subscribe(
       nutrient => {
         const foodNutrients = selectedFood.food.nutrients[nutrient.name]
-        if (typeof foodNutrients === 'undefined') {
-          console.log(`Food ${selectedFood.food.name} is missing nutrient: ${nutrient.name}`)
-        }
-        microNutrients[nutrient.name].amount += (foodNutrients || 0) * selectedFood.amount
+        microNutrients[nutrient.name].raw += (foodNutrients || 0) * selectedFood.amount
       },
       err => console.error(err),
       () => {
         nutrients$.subscribe(nutrient => {
-          microNutrients[nutrient.name].percentage = parseInt(
-            (microNutrients[nutrient.name].amount * 100) / nutrient.rda,
-            10,
+          microNutrients[nutrient.name].percentage = percentage(
+            microNutrients[nutrient.name].raw,
+            nutrient.rda,
           )
-          microNutrients[nutrient.name].amount = parseInt(microNutrients[nutrient.name].amount, 10)
-          const r = unitize(microNutrients[nutrient.name].amount, ['g', 'mg', 'μg'])
-          microNutrients[nutrient.name].amountInUnits = r.amount
-          microNutrients[nutrient.name].amountUnit = r.unit
+          microNutrients[nutrient.name].raw = parseInt(microNutrients[nutrient.name].raw, 10)
+          const r = unitize(microNutrients[nutrient.name].raw, ['g', 'mg', 'μg'])
+          microNutrients[nutrient.name].amount = r.amount
+          microNutrients[nutrient.name].unit = r.unit
         })
       },
     )
