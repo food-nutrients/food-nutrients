@@ -9,18 +9,26 @@ it('renders correctly without data', () => {
 
 it('renders correctly with data', () => {
   const macroNutrients = {
-    calories: 500,
-    caloriesInUnits: 498,
-    caloriesUnits: 'kcal',
-    proteins: 5,
-    proteinsInUnits: 3,
-    proteinUnits: 'mg1',
-    carbohydrates: 15,
-    carbohydratesInUnits: 13,
-    carbohydratesUnits: 'mg2',
-    fat: 25,
-    fatInUnits: 23,
-    fatUnits: 'mg3',
+    calories: {
+      raw: 500,
+      unit: 'kcal',
+      amount: 498,
+    },
+    proteins: {
+      raw: 5,
+      amount: 3,
+      unit: 'mg1',
+    },
+    carbs: {
+      raw: 15,
+      amount: 13,
+      unit: 'mg2',
+    },
+    fats: {
+      raw: 25,
+      amount: 23,
+      unit: 'mg3',
+    },
   }
   const tree = renderer.create(<MacroNutrients macroNutrients={macroNutrients} />).toJSON()
   expect(tree).toMatchSnapshot()

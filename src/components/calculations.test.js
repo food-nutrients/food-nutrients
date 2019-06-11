@@ -12,18 +12,26 @@ test('macroNutrients default case', () => {
   const selectedFoods = []
   const result = calculations.calculateMacroNutrients(selectedFoods)
   expect(result).toStrictEqual({
-    calories: 0,
-    caloriesUnits: 'kcal',
-    caloriesInUnits: 0,
-    proteins: 0,
-    proteinUnits: 'μg',
-    proteinsInUnits: 0,
-    carbohydrates: 0,
-    carbohydratesUnits: 'μg',
-    carbohydratesInUnits: 0,
-    fat: 0,
-    fatUnits: 'μg',
-    fatInUnits: 0,
+    calories: {
+      raw: 0,
+      amount: 0,
+      unit: 'kcal',
+    },
+    proteins: {
+      raw: 0,
+      amount: 0,
+      unit: 'μg',
+    },
+    carbs: {
+      raw: 0,
+      amount: 0,
+      unit: 'μg',
+    },
+    fats: {
+      raw: 0,
+      amount: 0,
+      unit: 'μg',
+    },
   })
 })
 
@@ -41,18 +49,26 @@ test('macroNutrients single food', () => {
   ]
   const result = calculations.calculateMacroNutrients(selectedFoods)
   expect(result).toStrictEqual({
-    calories: 5000,
-    caloriesUnits: 'kcal',
-    caloriesInUnits: 5000,
-    proteins: 10000,
-    proteinUnits: 'mg',
-    proteinsInUnits: 10,
-    carbohydrates: 60000,
-    carbohydratesUnits: 'mg',
-    carbohydratesInUnits: 60,
-    fat: 30000,
-    fatUnits: 'mg',
-    fatInUnits: 30,
+    calories: {
+      raw: 5000,
+      amount: 5000,
+      unit: 'kcal',
+    },
+    proteins: {
+      raw: 10000,
+      amount: 10,
+      unit: 'mg',
+    },
+    carbs: {
+      raw: 60000,
+      amount: 60,
+      unit: 'mg',
+    },
+    fats: {
+      raw: 30000,
+      amount: 30,
+      unit: 'mg',
+    },
   })
 })
 
@@ -79,18 +95,26 @@ test('macroNutrients multiple foods', () => {
   ]
   const result = calculations.calculateMacroNutrients(selectedFoods)
   expect(result).toStrictEqual({
-    calories: 13400,
-    caloriesUnits: 'kcal',
-    caloriesInUnits: 13400,
-    proteins: 34000,
-    proteinUnits: 'mg',
-    proteinsInUnits: 34,
-    carbohydrates: 168000,
-    carbohydratesUnits: 'mg',
-    carbohydratesInUnits: 168,
-    fat: 90000,
-    fatUnits: 'mg',
-    fatInUnits: 90,
+    calories: {
+      raw: 13400,
+      amount: 13400,
+      unit: 'kcal',
+    },
+    proteins: {
+      raw: 34000,
+      amount: 34,
+      unit: 'mg',
+    },
+    carbs: {
+      raw: 168000,
+      amount: 168,
+      unit: 'mg',
+    },
+    fats: {
+      raw: 90000,
+      amount: 90,
+      unit: 'mg',
+    },
   })
 })
 

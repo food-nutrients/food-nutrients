@@ -1,45 +1,46 @@
 export const defaultMacroNutrients = {
-  calories: 0,
-  caloriesUnits: 'kcal',
-  caloriesInUnits: 0,
-  proteins: 0,
-  proteinUnits: 'μg',
-  proteinsInUnits: 0,
-  carbohydrates: 0,
-  carbohydratesUnits: 'μg',
-  carbohydratesInUnits: 0,
-  fat: 0,
-  fatUnits: 'μg',
-  fatInUnits: 0,
+  calories: {
+    raw: 0,
+    amount: 0,
+    unit: 'kcal',
+  },
+  proteins: {
+    raw: 0,
+    amount: 0,
+    unit: 'μg',
+  },
+  carbs: {
+    raw: 0,
+    amount: 0,
+    unit: 'μg',
+  },
+  fats: {
+    raw: 0,
+    amount: 0,
+    unit: 'μg',
+  },
 }
 export const calculateMacroNutrients = selectedFoods => {
-  const macroNutrients = Object.assign({}, defaultMacroNutrients)
+  const macroNutrients = JSON.parse(JSON.stringify(defaultMacroNutrients))
+
   selectedFoods.forEach(selectedFood => {
     selectedFood.amount = selectedFood.amount || 0
-    macroNutrients.calories += selectedFood.food.calories * selectedFood.amount
-    macroNutrients.proteins += selectedFood.food.proteins * selectedFood.amount
-    macroNutrients.carbohydrates += selectedFood.food.carbohydrates * selectedFood.amount
-    macroNutrients.fat += selectedFood.food.fat * selectedFood.amount
+    macroNutrients.calories.raw += selectedFood.food.calories * selectedFood.amount
+    macroNutrients.proteins.raw += selectedFood.food.proteins * selectedFood.amount
+    macroNutrients.carbs.raw += selectedFood.food.carbohydrates * selectedFood.amount
+    macroNutrients.fats.raw += selectedFood.food.fat * selectedFood.amount
   })
 
-  const ca = unitize(macroNutrients.calories, ['kcal'])
-  macroNutrients.caloriesInUnits = ca.amount
-  macroNutrients.caloriesUnits = ca.unit
-
-  const p = unitize(macroNutrients.proteins, ['g', 'mg', 'μg'])
-  macroNutrients.proteinsInUnits = p.amount
-  macroNutrients.proteinUnits = p.unit
-
-  const c = unitize(macroNutrients.carbohydrates, ['g', 'mg', 'μg'])
-  macroNutrients.carbohydratesInUnits = c.amount
-  macroNutrients.carbohydratesUnits = c.unit
-
-  const f = unitize(macroNutrients.fat, ['g', 'mg', 'μg'])
-  macroNutrients.fatInUnits = f.amount
-  macroNutrients.fatUnits = f.unit
+  macroNutrients.calories = formatMacroNutrient(macroNutrients.calories, ['kcal'])
+  macroNutrients.proteins = formatMacroNutrient(macroNutrients.proteins, ['g', 'mg', 'μg'])
+  macroNutrients.carbs = formatMacroNutrient(macroNutrients.carbs, ['g', 'mg', 'μg'])
+  macroNutrients.fats = formatMacroNutrient(macroNutrients.fats, ['g', 'mg', 'μg'])
 
   return macroNutrients
 }
+const formatMacroNutrient = (macroNutrient, units) =>
+  Object.assign(macroNutrient, unitize(macroNutrient.raw, units))
+
 export const unitize = (amount, units) => {
   let unit = units.pop()
   while (amount >= 1000) {

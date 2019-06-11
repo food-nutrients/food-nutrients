@@ -41,7 +41,7 @@ class USDA {
             fibers: get(291),
             serving: 100,
             nutrients: {
-                Calcium: get(301),
+                "Calcium": get(301),
                 "Iron": get(303),
                 "Potassium": get(306),
                 "Magnesium": get(304),
