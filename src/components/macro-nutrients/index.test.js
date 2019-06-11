@@ -10,21 +10,25 @@ it('renders correctly without data', () => {
 it('renders correctly with data', () => {
   const macroNutrients = {
     calories: {
+      name: 'Calories',
       raw: 500,
       unit: 'kcal',
       amount: 498,
     },
     proteins: {
+      name: 'Proteins',
       raw: 5,
       amount: 3,
       unit: 'mg1',
     },
     carbs: {
+      name: 'Carbs',
       raw: 15,
       amount: 13,
       unit: 'mg2',
     },
     fats: {
+      name: 'Fats',
       raw: 25,
       amount: 23,
       unit: 'mg3',

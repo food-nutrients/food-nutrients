@@ -8,28 +8,19 @@ import './../../App.css'
 import MacroNutrient from '../macro-nutrient'
 
 export default class MacroNutrients extends Component {
+  static macroNutrientShape = PropTypes.shape({
+    name: PropTypes.string.isRequired,
+    raw: PropTypes.number.isRequired,
+    amount: PropTypes.number.isRequired,
+    unit: PropTypes.string.isRequired,
+  })
+
   static propTypes = {
     macroNutrients: PropTypes.shape({
-      calories: PropTypes.shape({
-        raw: PropTypes.number.isRequired,
-        amount: PropTypes.number.isRequired,
-        unit: PropTypes.string.isRequired,
-      }),
-      proteins: PropTypes.shape({
-        raw: PropTypes.number.isRequired,
-        amount: PropTypes.number.isRequired,
-        unit: PropTypes.string.isRequired,
-      }),
-      carbs: PropTypes.shape({
-        raw: PropTypes.number.isRequired,
-        amount: PropTypes.number.isRequired,
-        unit: PropTypes.string.isRequired,
-      }),
-      fats: PropTypes.shape({
-        raw: PropTypes.number.isRequired,
-        amount: PropTypes.number.isRequired,
-        unit: PropTypes.string.isRequired,
-      }),
+      calories: MacroNutrients.macroNutrientShape,
+      proteins: MacroNutrients.macroNutrientShape,
+      carbs: MacroNutrients.macroNutrientShape,
+      fats: MacroNutrients.macroNutrientShape,
     }),
   }
 
@@ -44,26 +35,10 @@ export default class MacroNutrients extends Component {
 
     return {
       macroNutrients: [
-        {
-          name: 'Calories',
-          amount: macroNutrients.calories.amount,
-          units: macroNutrients.calories.unit,
-        },
-        {
-          name: 'Proteins',
-          amount: macroNutrients.proteins.amount,
-          units: macroNutrients.proteins.unit,
-        },
-        {
-          name: 'Carbs',
-          amount: macroNutrients.carbs.amount,
-          units: macroNutrients.carbs.unit,
-        },
-        {
-          name: 'Fats',
-          amount: macroNutrients.fats.amount,
-          units: macroNutrients.fats.unit,
-        },
+        macroNutrients.calories,
+        macroNutrients.proteins,
+        macroNutrients.carbs,
+        macroNutrients.fats,
       ],
     }
   }
@@ -75,7 +50,7 @@ export default class MacroNutrients extends Component {
             key={macroNutrient.name}
             name={macroNutrient.name}
             amount={macroNutrient.amount}
-            units={macroNutrient.units}
+            units={macroNutrient.unit}
           />
         ))}
         <MacroPieChart

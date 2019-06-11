@@ -14,21 +14,25 @@ test('macroNutrients default case', () => {
   const result = calculations.calculateMacroNutrients(selectedFoods$)
   expect(result).toStrictEqual({
     calories: {
+      name: 'Calories',
       raw: 0,
       amount: 0,
       unit: 'kcal',
     },
     proteins: {
+      name: 'Proteins',
       raw: 0,
       amount: 0,
       unit: 'μg',
     },
     carbs: {
+      name: 'Carbs',
       raw: 0,
       amount: 0,
       unit: 'μg',
     },
     fats: {
+      name: 'Fats',
       raw: 0,
       amount: 0,
       unit: 'μg',
@@ -52,21 +56,25 @@ test('macroNutrients single food', () => {
   const result = calculations.calculateMacroNutrients(selectedFoods$)
   expect(result).toStrictEqual({
     calories: {
+      name: 'Calories',
       raw: 5000,
       amount: 5000,
       unit: 'kcal',
     },
     proteins: {
+      name: 'Proteins',
       raw: 10000,
       amount: 10,
       unit: 'mg',
     },
     carbs: {
+      name: 'Carbs',
       raw: 60000,
       amount: 60,
       unit: 'mg',
     },
     fats: {
+      name: 'Fats',
       raw: 30000,
       amount: 30,
       unit: 'mg',
@@ -99,21 +107,25 @@ test('macroNutrients multiple foods', () => {
   const result = calculations.calculateMacroNutrients(selectedFoods$)
   expect(result).toStrictEqual({
     calories: {
+      name: 'Calories',
       raw: 13400,
       amount: 13400,
       unit: 'kcal',
     },
     proteins: {
+      name: 'Proteins',
       raw: 34000,
       amount: 34,
       unit: 'mg',
     },
     carbs: {
+      name: 'Carbs',
       raw: 168000,
       amount: 168,
       unit: 'mg',
     },
     fats: {
+      name: 'Fats',
       raw: 90000,
       amount: 90,
       unit: 'mg',

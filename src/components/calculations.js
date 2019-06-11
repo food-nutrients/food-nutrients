@@ -1,20 +1,24 @@
 export const defaultMacroNutrients = {
   calories: {
+    name: 'Calories',
     raw: 0,
     amount: 0,
     unit: 'kcal',
   },
   proteins: {
+    name: 'Proteins',
     raw: 0,
     amount: 0,
     unit: 'μg',
   },
   carbs: {
+    name: 'Carbs',
     raw: 0,
     amount: 0,
     unit: 'μg',
   },
   fats: {
+    name: 'Fats',
     raw: 0,
     amount: 0,
     unit: 'μg',
