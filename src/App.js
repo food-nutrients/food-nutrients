@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
-
+import { from } from 'rxjs'
+import { map } from 'rxjs/operators'
 import MacroNutrients from './components/macro-nutrients'
 import MicroNutrients from './components/micro-nutrients'
 
@@ -18,21 +19,18 @@ import './App.css'
 
 export default class App extends Component {
   state = {}
-
-  updateMacroNutrients = selectedFoods => {
+  nutrients$ = from(nutrients)
+  nutrientsLimited$ = from(nutrients).pipe(
+    map(nutrient => ({
+      name: nutrient.name,
+      rda: nutrient.rda,
+    })),
+  )
+  updateNutrients = selectedFoods$ => {
     this.setState({
-      macroNutrients: calculateMacroNutrients(selectedFoods),
+      macroNutrients: calculateMacroNutrients(selectedFoods$),
+      microNutrients: calculateMicroNutrients(selectedFoods$, this.nutrientsLimited$),
     })
-  }
-  updateMicroNutrients = selectedFoods => {
-    this.setState({
-      microNutrients: calculateMicroNutrients(selectedFoods, nutrients),
-    })
-  }
-
-  updateNutrients = selectedFoods => {
-    this.updateMacroNutrients(selectedFoods)
-    this.updateMicroNutrients(selectedFoods)
   }
 
   componentDidMount() {

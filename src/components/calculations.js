@@ -20,21 +20,24 @@ export const defaultMacroNutrients = {
     unit: 'μg',
   },
 }
-export const calculateMacroNutrients = selectedFoods => {
+export const calculateMacroNutrients = selectedFoods$ => {
   const macroNutrients = JSON.parse(JSON.stringify(defaultMacroNutrients))
-
-  selectedFoods.forEach(selectedFood => {
-    selectedFood.amount = selectedFood.amount || 0
-    macroNutrients.calories.raw += selectedFood.food.calories * selectedFood.amount
-    macroNutrients.proteins.raw += selectedFood.food.proteins * selectedFood.amount
-    macroNutrients.carbs.raw += selectedFood.food.carbohydrates * selectedFood.amount
-    macroNutrients.fats.raw += selectedFood.food.fat * selectedFood.amount
-  })
-
-  macroNutrients.calories = formatMacroNutrient(macroNutrients.calories, ['kcal'])
-  macroNutrients.proteins = formatMacroNutrient(macroNutrients.proteins, ['g', 'mg', 'μg'])
-  macroNutrients.carbs = formatMacroNutrient(macroNutrients.carbs, ['g', 'mg', 'μg'])
-  macroNutrients.fats = formatMacroNutrient(macroNutrients.fats, ['g', 'mg', 'μg'])
+  selectedFoods$.subscribe(
+    selectedFood => {
+      selectedFood.amount = selectedFood.amount || 0
+      macroNutrients.calories.raw += selectedFood.food.calories * selectedFood.amount
+      macroNutrients.proteins.raw += selectedFood.food.proteins * selectedFood.amount
+      macroNutrients.carbs.raw += selectedFood.food.carbohydrates * selectedFood.amount
+      macroNutrients.fats.raw += selectedFood.food.fat * selectedFood.amount
+    },
+    err => console.error(err),
+    () => {
+      macroNutrients.calories = formatMacroNutrient(macroNutrients.calories, ['kcal'])
+      macroNutrients.proteins = formatMacroNutrient(macroNutrients.proteins, ['g', 'mg', 'μg'])
+      macroNutrients.carbs = formatMacroNutrient(macroNutrients.carbs, ['g', 'mg', 'μg'])
+      macroNutrients.fats = formatMacroNutrient(macroNutrients.fats, ['g', 'mg', 'μg'])
+    },
+  )
 
   return macroNutrients
 }
@@ -58,29 +61,51 @@ export const unitize = (amount, units) => {
     unit,
   }
 }
-export const calculateMicroNutrients = (selectedFoods, nutrients) => {
+const getMicroNutrientsDefaults = nutrients$ => {
   const microNutrients = {}
-  nutrients.forEach(nutrient => {
-    microNutrients[nutrient.name] = {
-      rda: nutrient.rda,
-      amount: 0,
-      percentage: 0,
-    }
-    selectedFoods.forEach(selectedFood => {
-      const foodNutrients = selectedFood.food.nutrients[nutrient.name]
-      if (typeof foodNutrients === 'undefined') {
-        console.log(`Food ${selectedFood.food.name} is missing nutrient: ${nutrient.name}`)
+  nutrients$.subscribe(
+    nutrient => {
+      if (!microNutrients[nutrient.name]) {
+        microNutrients[nutrient.name] = {
+          rda: nutrient.rda,
+          amount: 0,
+          amountInUnits: 0,
+          amountUnit: 'μg',
+          percentage: 0,
+        }
       }
-      microNutrients[nutrient.name].amount += (foodNutrients || 0) * selectedFood.amount
-    })
-    microNutrients[nutrient.name].percentage = parseInt(
-      (microNutrients[nutrient.name].amount * 100) / nutrient.rda,
-      10,
+    },
+    err => console.log(err),
+    () => {},
+  )
+  return microNutrients
+}
+export const calculateMicroNutrients = (selectedFoods$, nutrients$) => {
+  const microNutrients = getMicroNutrientsDefaults(nutrients$)
+
+  selectedFoods$.subscribe(selectedFood => {
+    nutrients$.subscribe(
+      nutrient => {
+        const foodNutrients = selectedFood.food.nutrients[nutrient.name]
+        if (typeof foodNutrients === 'undefined') {
+          console.log(`Food ${selectedFood.food.name} is missing nutrient: ${nutrient.name}`)
+        }
+        microNutrients[nutrient.name].amount += (foodNutrients || 0) * selectedFood.amount
+      },
+      err => console.error(err),
+      () => {
+        nutrients$.subscribe(nutrient => {
+          microNutrients[nutrient.name].percentage = parseInt(
+            (microNutrients[nutrient.name].amount * 100) / nutrient.rda,
+            10,
+          )
+          microNutrients[nutrient.name].amount = parseInt(microNutrients[nutrient.name].amount, 10)
+          const r = unitize(microNutrients[nutrient.name].amount, ['g', 'mg', 'μg'])
+          microNutrients[nutrient.name].amountInUnits = r.amount
+          microNutrients[nutrient.name].amountUnit = r.unit
+        })
+      },
     )
-    microNutrients[nutrient.name].amount = parseInt(microNutrients[nutrient.name].amount, 10)
-    const r = unitize(microNutrients[nutrient.name].amount, ['g', 'mg', 'μg'])
-    microNutrients[nutrient.name].amountInUnits = r.amount
-    microNutrients[nutrient.name].amountUnit = r.unit
   })
 
   return microNutrients
