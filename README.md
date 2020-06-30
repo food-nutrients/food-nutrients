@@ -10,6 +10,10 @@
 
 Live website: <http://food-nutrients.github.io>
 
+# User suggestions:
+You you have feature you want to see you can upvote it here:
+  https://food-nutrients.featureupvote.com/
+
 # Data
 
 The data is located in `src/data` and is compiled by us.
