@@ -34,7 +34,7 @@
   },
   "dependencies": {
     "antd": "3.17.0",
-    "chart.js": "2.8.0",
+    "chart.js": "2.9.4",
     "immutability-helper": "3.0.0",
     "react": "^16.8.6",
     "react-chartkick": "0.3.0",
