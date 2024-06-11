@@ -1,5 +1,7 @@
 # Use the official Bun image as the base image
-FROM oven/bun:latest
+FROM oven/bun:debian
+
+RUN apt-get -y update && apt-get -y install curl wget
 
 # Set the working directory inside the container
 WORKDIR /app
