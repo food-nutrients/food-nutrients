@@ -1,5 +1,5 @@
-# Use the official Bun image as the base image
-FROM oven/bun:debian
+# Use the official Bun image as the base image for building the app
+FROM oven/bun:debian AS builder
 
 RUN apt-get -y update && apt-get -y install curl wget
 
@@ -18,8 +18,17 @@ COPY . .
 # Build the application
 RUN bun run build
 
-# Expose the port on which the app will run
-EXPOSE 4173
+# Use the official Nginx image as the base image for serving static files
+FROM nginx:alpine
 
-# Define the command to run the application
-CMD ["bun", "run", "preview", "--host"]
+# Copy the built files from the builder stage to the Nginx HTML directory
+COPY --from=builder /app/dist /usr/share/nginx/html
+
+# Copy a default Nginx configuration file
+COPY nginx.conf /etc/nginx/conf.d/default.conf
+
+# Expose the port on which the app will run
+EXPOSE 80
+
+# Define the command to run Nginx
+CMD ["nginx", "-g", "daemon off;"]
