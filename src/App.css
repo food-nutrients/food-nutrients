@@ -1,15 +1,15 @@
-@import '~antd/dist/antd.css';
-
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu',
-    'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
+    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
+    sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
 code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New', monospace;
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
+    monospace;
 }
 
 .App {
@@ -82,7 +82,7 @@ code {
 }
 
 .macroChartEmpty {
-  opacity: 0.1
+  opacity: 0.1;
 }
 
 .macroNutrient div:first-child {
@@ -170,15 +170,15 @@ code {
   margin-left: 5pt;
 }
 
-input[type='number']::-webkit-inner-spin-button,
-input[type='number']::-webkit-outer-spin-button {
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
   -webkit-appearance: none;
   -moz-appearance: none;
   appearance: none;
   margin: 0;
 }
 
-input[type='number'] {
+input[type="number"] {
   -moz-appearance: textfield;
 }
 
@@ -248,33 +248,53 @@ input[type='number'] {
 }
 
 .github-corner:hover .octo-arm {
-  animation: octocat-wave 560ms ease-in-out
+  animation: octocat-wave 560ms ease-in-out;
 }
 
 @keyframes octocat-wave {
-
   0%,
   100% {
-    transform: rotate(0)
+    transform: rotate(0);
   }
 
   20%,
   60% {
-    transform: rotate(-25deg)
+    transform: rotate(-25deg);
   }
 
   40%,
   80% {
-    transform: rotate(10deg)
+    transform: rotate(10deg);
   }
 }
 
-@media (max-width:500px) {
+@media (max-width: 500px) {
   .github-corner:hover .octo-arm {
-    animation: none
+    animation: none;
   }
 
   .github-corner .octo-arm {
-    animation: octocat-wave 560ms ease-in-out
+    animation: octocat-wave 560ms ease-in-out;
   }
+}
+
+a {
+  color: #1890ff;
+  text-decoration: none;
+  background-color: transparent;
+  outline: none;
+  cursor: pointer;
+  -webkit-transition: color 0.3s;
+  transition: color 0.3s;
+  -webkit-text-decoration-skip: objects;
+}
+body {
+  color: rgba(0, 0, 0, 0.65);
+  font-size: 14px;
+  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, PingFang SC,
+    Hiragino Sans GB, Microsoft YaHei, Helvetica Neue, Helvetica, Arial,
+    sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol;
+  font-variant: tabular-nums;
+  line-height: 1.5;
+  font-feature-settings: "tnum", "tnum";
 }

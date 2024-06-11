@@ -11,15 +11,16 @@
 Live website: <http://food-nutrients.github.io>
 
 # User suggestions:
+
 You you have feature you want to see you can upvote it here:
-  https://food-nutrients.featureupvote.com/
+https://food-nutrients.featureupvote.com/
 
 # Data
 
 The data is located in `src/data` and is compiled by us.
 
--   [foods.json](https://github.com/food-nutrients/food-nutrients/blob/master/src/data/foods.json) - contains all food nutrients
--   [nutrients.json](https://github.com/food-nutrients/food-nutrients/blob/master/src/data/nutrients.json) - contains the nutrients and RDI (Reference Daily Intake)
+- [foods.json](https://github.com/food-nutrients/food-nutrients/blob/master/src/data/foods.json) - contains all food nutrients
+- [nutrients.json](https://github.com/food-nutrients/food-nutrients/blob/master/src/data/nutrients.json) - contains the nutrients and RDI (Reference Daily Intake)
 
 We wanted to keep it simple and may move to using the [USDA Food Database](https://ndb.nal.usda.gov/ndb/search/list) as a sort of API.
 

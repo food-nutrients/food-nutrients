@@ -135,6 +135,8 @@ exports[`renders correctly without data 1`] = `
       className="macroChartEmpty"
       onMouseEnter={[Function]}
       onMouseLeave={[Function]}
+      onPointerEnter={[Function]}
+      onPointerLeave={[Function]}
       src="graph_placeholder.png"
     />
   </div>

@@ -1,7 +1,9 @@
 {
   "name": "food-nutrients",
+  "private": false,
   "version": "1.0.0",
   "description": "View all the macro & micronutrients of raw foods as % based on daily recommended values. You can quickly identify missing micronutrients from your diet and add foods to your meal that gives you healthier nutrition.",
+  "type": "module",
   "keywords": [
     "food",
     "food-recommendation",
@@ -19,51 +21,38 @@
   "bugs": {
     "url": "https://github.com/food-nutrients/food-nutrients/issues"
   },
-  "private": false,
   "homepage": "https://github.com/food-nutrients/food-nutrients#readme",
   "repository": {
     "type": "git",
     "url": "https://github.com/food-nutrients/food-nutrients.git"
   },
   "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test",
-    "coverage": "jest --coverage -u --moduleNameMapper '{\".+\\\\.(css|styl|less|sass|scss|png|jpg|ttf|woff|woff2)$\": \"jest-transform-stub\"}'",
-    "eject": "react-scripts eject"
+    "dev": "vite",
+    "build": "tsc && vite build",
+    "lint": "eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
+    "preview": "vite preview"
   },
   "dependencies": {
-    "antd": "3.17.0",
-    "chart.js": "2.8.0",
-    "immutability-helper": "3.0.0",
-    "react": "^16.8.6",
-    "react-chartkick": "0.3.0",
-    "react-device-detect": "1.6.2",
-    "react-dom": "^16.8.6",
-    "react-scripts": "3.0.1",
-    "rxjs": "6.5.2",
-    "shepherd.js": "2.8.0"
-  },
-  "eslintConfig": {
-    "extends": "react-app"
-  },
-  "browserslist": {
-    "production": [
-      ">0.2%",
-      "not dead",
-      "not op_mini all"
-    ],
-    "development": [
-      "last 1 chrome version",
-      "last 1 firefox version",
-      "last 1 safari version"
-    ]
+    "antd": "^5.18.0",
+    "chart.js": "^4.4.3",
+    "immutability-helper": "^3.1.1",
+    "react": "^18.2.0",
+    "react-chartjs-2": "^5.2.0",
+    "react-device-detect": "^2.2.3",
+    "react-dom": "^18.2.0",
+    "rxjs": "^7.8.1",
+    "shepherd.js": "^12.0.6"
   },
   "devDependencies": {
-    "@babel/plugin-proposal-class-properties": "7.4.4",
-    "@babel/plugin-transform-modules-commonjs": "7.4.4",
-    "@babel/plugin-transform-react-jsx": "7.3.0",
-    "jest-transform-stub": "2.0.0",
-    "react-test-renderer": "16.8.6"
+    "@types/react": "^18.2.66",
+    "@types/react-dom": "^18.2.22",
+    "@typescript-eslint/eslint-plugin": "^7.2.0",
+    "@typescript-eslint/parser": "^7.2.0",
+    "@vitejs/plugin-react-swc": "^3.5.0",
+    "eslint": "^8.57.0",
+    "eslint-plugin-react-hooks": "^4.6.0",
+    "eslint-plugin-react-refresh": "^0.4.6",
+    "typescript": "^5.2.2",
+    "vite": "^5.2.0"
   }
 }
