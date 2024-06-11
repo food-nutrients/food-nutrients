@@ -19,7 +19,7 @@ COPY . .
 RUN bun run build
 
 # Expose the port on which the app will run
-EXPOSE 5173
+EXPOSE 4173
 
 # Define the command to run the application
 CMD ["bun", "run", "preview"]
